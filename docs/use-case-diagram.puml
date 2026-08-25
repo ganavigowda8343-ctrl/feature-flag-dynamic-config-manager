@@ -1,0 +1,68 @@
+@startuml FeatureFlagManager_UseCaseDiagram
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundcorner 10
+skinparam actorStyle awesome
+
+skinparam sequence {
+    ArrowColor #2C3E50
+    ActorBorderColor #2C3E50
+    LifeLineBorderColor #2C3E50
+}
+
+skinparam usecase {
+    BackgroundColor #EBF5FB
+    BorderColor #2980B9
+    FontName Arial
+    FontSize 12
+}
+
+actor "Software Engineer" as SE #3498DB
+actor "Release Manager" as RM #E67E22
+actor "Client SDK / App Service" as SDK #2ECC71
+actor "Monitoring & Alerting System" as MON #E74C3C
+
+rectangle "Feature Flag & Dynamic Config Manager" {
+    usecase "UC-01: Define Feature Flag &\nTargeting Rules" as UC_DefineFlag
+    usecase "UC-02: Configure Environment\nOverrides" as UC_EnvOverride
+    usecase "UC-03: Manage Percentage-Based\nCanary Rollout" as UC_Rollout
+    usecase "UC-04: Trigger Emergency\nKill Switch" as UC_KillSwitch
+    usecase "UC-05: Synchronize Flags &\nConfigurations in Real-Time" as UC_Sync
+    usecase "UC-06: Evaluate Feature Flag\nat Runtime" as UC_Eval
+    usecase "UC-07: View Audit Logs &\nRevision Diffs" as UC_Audit
+    usecase "UC-08: Authenticate &\nAuthorize Access" as UC_Auth #D6EAF8
+    usecase "UC-09: Log Audit Event" as UC_Log #D6EAF8
+    usecase "UC-10: Fall Back to Local\nIn-Memory Cache" as UC_CacheFallback #FDEDEC
+    usecase "UC-11: Rollback Configuration\nVersion" as UC_Rollback #FDEDEC
+}
+
+' Primary Actor Associations
+SE --> UC_DefineFlag
+SE --> UC_EnvOverride
+SE --> UC_Audit
+
+RM --> UC_EnvOverride
+RM --> UC_Rollout
+RM --> UC_KillSwitch
+RM --> UC_Audit
+RM --> UC_Rollback
+
+' Secondary Actor Associations
+SDK --> UC_Sync
+SDK --> UC_Eval
+MON --> UC_KillSwitch
+
+' Include Relationships (Mandatory sub-tasks)
+UC_DefineFlag ..> UC_Auth : <<include>>
+UC_EnvOverride ..> UC_Auth : <<include>>
+UC_Rollout ..> UC_Auth : <<include>>
+UC_Rollout ..> UC_Log : <<include>>
+UC_KillSwitch ..> UC_Log : <<include>>
+
+' Extend Relationships (Optional / Exceptional / Conditional extensions)
+UC_KillSwitch .> UC_Rollout : <<extend>>\n(On Critical Anomaly)
+UC_Rollback .> UC_Audit : <<extend>>\n(On Revision Selection)
+UC_CacheFallback .> UC_Sync : <<extend>>\n(On Connection Failure)
+
+@enduml

@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .title-text { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 18px; font-weight: bold; fill: #1a252f; }
+      .subtitle-text { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 12px; fill: #566573; }
+      .boundary-title { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #2c3e50; }
+      .actor-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #2c3e50; text-anchor: middle; }
+      .actor-role { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; fill: #7f8c8d; text-anchor: middle; }
+      .uc-box { fill: #ebf5fb; stroke: #2980b9; stroke-width: 1.8; rx: 20; ry: 20; }
+      .uc-inc-box { fill: #d6eaf8; stroke: #1b4f72; stroke-width: 1.8; stroke-dasharray: 4,4; rx: 18; ry: 18; }
+      .uc-ext-box { fill: #fdedec; stroke: #c0392b; stroke-width: 1.8; stroke-dasharray: 4,4; rx: 18; ry: 18; }
+      .uc-text { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; font-weight: 600; fill: #1b2631; text-anchor: middle; }
+      .uc-subtext { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 9.5px; fill: #566573; text-anchor: middle; font-style: italic; }
+      .line { stroke: #34495e; stroke-width: 1.5; fill: none; }
+      .line-inc { stroke: #1b4f72; stroke-width: 1.5; stroke-dasharray: 5,4; fill: none; marker-end: url(#arrow-inc); }
+      .line-ext { stroke: #c0392b; stroke-width: 1.5; stroke-dasharray: 5,4; fill: none; marker-end: url(#arrow-ext); }
+      .rel-label { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 9.5px; font-weight: bold; text-anchor: middle; }
+    </style>
+    <marker id="arrow-inc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1b4f72" />
+    </marker>
+    <marker id="arrow-ext" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#c0392b" />
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1000" height="680" fill="#ffffff" />
+
+  <!-- Header Section -->
+  <rect x="20" y="15" width="960" height="45" rx="8" fill="#f8f9fa" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="35" y="42" class="title-text">UML Use-Case Diagram: Feature Flag &amp; Dynamic Config Manager</text>
+  <text x="680" y="42" class="subtitle-text">PES University - CSE Lab 1 | Problem Statement #43</text>
+
+  <!-- System Boundary Box -->
+  <rect x="230" y="75" width="540" height="585" rx="12" fill="#fafbfc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8,4" />
+  <rect x="230" y="75" width="370" height="28" rx="6" fill="#e2e8f0" />
+  <text x="245" y="94" class="boundary-title">System: Feature Flag &amp; Dynamic Config Manager</text>
+
+  <!-- ACTORS (Left Side) -->
+  <!-- Software Engineer -->
+  <g transform="translate(110, 180)">
+    <circle cx="0" cy="-22" r="14" fill="#e8f4f8" stroke="#3498db" stroke-width="2"/>
+    <line x1="0" y1="-8" x2="0" y2="18" stroke="#3498db" stroke-width="2"/>
+    <line x1="-16" y1="2" x2="16" y2="2" stroke="#3498db" stroke-width="2"/>
+    <line x1="0" y1="18" x2="-14" y2="40" stroke="#3498db" stroke-width="2"/>
+    <line x1="0" y1="18" x2="14" y2="40" stroke="#3498db" stroke-width="2"/>
+    <text x="0" y="58" class="actor-label">Software Engineer</text>
+    <text x="0" y="72" class="actor-role">(Primary Actor)</text>
+  </g>
+
+  <!-- Release Manager -->
+  <g transform="translate(110, 440)">
+    <circle cx="0" cy="-22" r="14" fill="#fef5e7" stroke="#e67e22" stroke-width="2"/>
+    <line x1="0" y1="-8" x2="0" y2="18" stroke="#e67e22" stroke-width="2"/>
+    <line x1="-16" y1="2" x2="16" y2="2" stroke="#e67e22" stroke-width="2"/>
+    <line x1="0" y1="18" x2="-14" y2="40" stroke="#e67e22" stroke-width="2"/>
+    <line x1="0" y1="18" x2="14" y2="40" stroke="#e67e22" stroke-width="2"/>
+    <text x="0" y="58" class="actor-label">Release Manager</text>
+    <text x="0" y="72" class="actor-role">(Primary Actor)</text>
+  </g>
+
+  <!-- ACTORS (Right Side) -->
+  <!-- Client SDK / App Service -->
+  <g transform="translate(890, 200)">
+    <rect x="-24" y="-30" width="48" height="34" rx="4" fill="#eafaf1" stroke="#2ecc71" stroke-width="2"/>
+    <line x1="-16" y1="4" x2="16" y2="4" stroke="#2ecc71" stroke-width="2"/>
+    <polygon points="-8,4 8,4 4,14 -4,14" fill="#2ecc71" />
+    <line x1="-12" y1="14" x2="12" y2="14" stroke="#2ecc71" stroke-width="2"/>
+    <text x="0" y="32" class="actor-label">Client SDK / App</text>
+    <text x="0" y="46" class="actor-role">(Secondary/System)</text>
+  </g>
+
+  <!-- Monitoring System -->
+  <g transform="translate(890, 440)">
+    <circle cx="0" cy="-12" r="18" fill="#fdedec" stroke="#e74c3c" stroke-width="2"/>
+    <path d="M -8 -12 L -2 -18 L 2 -6 L 8 -12" stroke="#e74c3c" stroke-width="2" fill="none"/>
+    <text x="0" y="24" class="actor-label">Monitoring System</text>
+    <text x="0" y="38" class="actor-role">(Secondary Actor)</text>
+  </g>
+
+  <!-- USE CASES INSIDE BOUNDARY -->
+  <!-- UC-01: Define Feature Flag -->
+  <rect x="260" y="115" width="220" height="46" class="uc-box"/>
+  <text x="370" y="142" class="uc-text">UC-01: Define Feature Flag &amp; Rules</text>
+
+  <!-- UC-02: Configure Environment Overrides -->
+  <rect x="260" y="180" width="220" height="46" class="uc-box"/>
+  <text x="370" y="207" class="uc-text">UC-02: Configure Env Overrides</text>
+
+  <!-- UC-03: Manage Percentage-Based Rollout -->
+  <rect x="260" y="260" width="230" height="50" class="uc-box"/>
+  <text x="375" y="284" class="uc-text">UC-03: Manage Percentage-Based</text>
+  <text x="375" y="299" class="uc-text">Canary Rollout</text>
+
+  <!-- UC-04: Trigger Emergency Kill Switch -->
+  <rect x="260" y="345" width="220" height="48" class="uc-box"/>
+  <text x="370" y="373" class="uc-text">UC-04: Trigger Kill Switch</text>
+
+  <!-- UC-05: Real-time SDK Sync -->
+  <rect x="525" y="150" width="220" height="48" class="uc-box"/>
+  <text x="635" y="172" class="uc-text">UC-05: Real-Time Sync Flags</text>
+  <text x="635" y="187" class="uc-subtext">&amp; Configurations</text>
+
+  <!-- UC-06: Evaluate Flag at Runtime -->
+  <rect x="525" y="225" width="220" height="46" class="uc-box"/>
+  <text x="635" y="252" class="uc-text">UC-06: Evaluate Flag at Runtime</text>
+
+  <!-- UC-07: View Audit Logs & Diffs -->
+  <rect x="260" y="425" width="220" height="46" class="uc-box"/>
+  <text x="370" y="452" class="uc-text">UC-07: View Audit Logs &amp; Diffs</text>
+
+  <!-- INCLUDED USE CASES -->
+  <!-- UC-08: Authenticate & Authorize Access -->
+  <rect x="525" y="315" width="220" height="46" class="uc-inc-box"/>
+  <text x="635" y="336" class="uc-text">UC-08: Auth &amp; Permissions</text>
+  <text x="635" y="351" class="uc-subtext">&lt;&lt;include&gt;&gt;</text>
+
+  <!-- UC-09: Log Audit Event -->
+  <rect x="525" y="390" width="220" height="46" class="uc-inc-box"/>
+  <text x="635" y="411" class="uc-text">UC-09: Log Audit Event</text>
+  <text x="635" y="426" class="uc-subtext">&lt;&lt;include&gt;&gt;</text>
+
+  <!-- EXTENDED USE CASES -->
+  <!-- UC-10: Fall Back to Local Cache -->
+  <rect x="525" y="475" width="220" height="48" class="uc-ext-box"/>
+  <text x="635" y="497" class="uc-text">UC-10: Fall Back to Local Cache</text>
+  <text x="635" y="512" class="uc-subtext">&lt;&lt;extend&gt;&gt;</text>
+
+  <!-- UC-11: Rollback Version -->
+  <rect x="260" y="580" width="220" height="46" class="uc-ext-box"/>
+  <text x="370" y="601" class="uc-text">UC-11: Rollback Config Version</text>
+  <text x="370" y="616" class="uc-subtext">&lt;&lt;extend&gt;&gt;</text>
+
+  <!-- ACTOR CONNECTION LINES -->
+  <!-- Software Engineer to Use Cases -->
+  <line x1="170" y1="180" x2="260" y2="138" class="line"/>
+  <line x1="170" y1="190" x2="260" y2="203" class="line"/>
+  <line x1="170" y1="210" x2="260" y2="445" class="line"/>
+
+  <!-- Release Manager to Use Cases -->
+  <line x1="170" y1="420" x2="260" y2="203" class="line"/>
+  <line x1="170" y1="435" x2="260" y2="285" class="line"/>
+  <line x1="170" y1="450" x2="260" y2="369" class="line"/>
+  <line x1="170" y1="465" x2="260" y2="448" class="line"/>
+
+  <!-- Client SDK to Use Cases -->
+  <line x1="830" y1="195" x2="745" y2="174" class="line"/>
+  <line x1="830" y1="215" x2="745" y2="248" class="line"/>
+
+  <!-- Monitoring System to Kill Switch -->
+  <line x1="830" y1="440" x2="480" y2="369" class="line"/>
+
+  <!-- INCLUDE RELATIONSHIPS (Dashed Blue Lines) -->
+  <path d="M 480 138 Q 520 200 550 315" class="line-inc"/>
+  <path d="M 480 203 Q 505 245 535 315" class="line-inc"/>
+  <path d="M 490 285 L 525 325" class="line-inc"/>
+  <path d="M 490 295 Q 510 350 535 390" class="line-inc"/>
+  <path d="M 480 375 L 525 400" class="line-inc"/>
+  <text x="500" y="300" class="rel-label" fill="#1b4f72">&lt;&lt;include&gt;&gt;</text>
+
+  <!-- EXTEND RELATIONSHIPS (Dashed Red Lines) -->
+  <!-- Kill Switch extends Rollout on anomaly -->
+  <path d="M 370 345 L 370 310" class="line-ext"/>
+  <text x="310" y="332" class="rel-label" fill="#c0392b">&lt;&lt;extend&gt;&gt;</text>
+
+  <!-- Fallback Cache extends SDK Sync on disconnect -->
+  <path d="M 635 475 L 635 198" class="line-ext"/>
+  <text x="685" y="455" class="rel-label" fill="#c0392b">&lt;&lt;extend&gt;&gt;</text>
+
+  <!-- Rollback extends Audit Log view -->
+  <path d="M 370 580 L 370 471" class="line-ext"/>
+  <text x="315" y="530" class="rel-label" fill="#c0392b">&lt;&lt;extend&gt;&gt;</text>
+
+  <!-- Legend Box -->
+  <g transform="translate(790, 560)">
+    <rect width="185" height="100" rx="6" fill="#f8f9fa" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="12" y="18" font-family="Arial" font-size="11" font-weight="bold" fill="#334155">Diagram Legend</text>
+    
+    <line x1="12" y1="36" x2="45" y2="36" stroke="#34495e" stroke-width="1.5"/>
+    <text x="52" y="39" font-family="Arial" font-size="9.5" fill="#475569">Association</text>
+
+    <line x1="12" y1="56" x2="45" y2="56" class="line-inc"/>
+    <text x="52" y="59" font-family="Arial" font-size="9.5" fill="#1b4f72">&lt;&lt;include&gt;&gt; (Mandatory)</text>
+
+    <line x1="12" y1="78" x2="45" y2="78" class="line-ext"/>
+    <text x="52" y="81" font-family="Arial" font-size="9.5" fill="#c0392b">&lt;&lt;extend&gt;&gt; (Conditional)</text>
+  </g>
+</svg>
