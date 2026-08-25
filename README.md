@@ -116,16 +116,16 @@ graph LR
     MON --- UC4
 
     %% Include Relationships (Mandatory Sub-flows)
-    UC1 -.->|&lt;&lt;include&gt;&gt;| UC_AUTH
-    UC2 -.->|&lt;&lt;include&gt;&gt;| UC_AUTH
-    UC3 -.->|&lt;&lt;include&gt;&gt;| UC_AUTH
-    UC3 -.->|&lt;&lt;include&gt;&gt;| UC_LOG
-    UC4 -.->|&lt;&lt;include&gt;&gt;| UC_LOG
+    UC1 -.->|"&lt;&lt;include&gt;&gt;"| UC_AUTH
+    UC2 -.->|"&lt;&lt;include&gt;&gt;"| UC_AUTH
+    UC3 -.->|"&lt;&lt;include&gt;&gt;"| UC_AUTH
+    UC3 -.->|"&lt;&lt;include&gt;&gt;"| UC_LOG
+    UC4 -.->|"&lt;&lt;include&gt;&gt;"| UC_LOG
 
     %% Extend Relationships (Conditional / Exceptional Flows)
-    UC4 -.->|&lt;&lt;extend&gt;&gt; [On Anomaly Detected]| UC3
-    UC_ROLLBACK -.->|&lt;&lt;extend&gt;&gt; [On Revision Selected]| UC7
-    UC_CACHE -.->|&lt;&lt;extend&gt;&gt; [On Network Outage]| UC5
+    UC4 -.->|"&lt;&lt;extend&gt;&gt; (On Anomaly Detected)"| UC3
+    UC_ROLLBACK -.->|"&lt;&lt;extend&gt;&gt; (On Revision Selected)"| UC7
+    UC_CACHE -.->|"&lt;&lt;extend&gt;&gt; (On Network Outage)"| UC5
 
     %% Styling
     classDef actorStyle fill:#f9f9f9,stroke:#333,stroke-width:2px;
