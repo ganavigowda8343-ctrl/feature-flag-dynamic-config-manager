@@ -20,8 +20,9 @@
    - [Mermaid Specification](#32-mermaid-specification)
    - [Actors & Stereotype Justifications](#33-actors--stereotype-justifications)
 4. [Use-Case Flow Specification (UC-01)](#4-use-case-flow-specification-uc-01)
-5. [Repository Structure](#5-repository-structure)
-6. [Submission & Verification Guide](#6-submission--verification-guide)
+5. [Lab 2: Agile Backlog Creation & Sprint Simulation in Jira](#5-lab-2-agile-backlog-creation--sprint-simulation-in-jira)
+6. [Repository Structure](#6-repository-structure)
+7. [Submission & Verification Guide](#7-submission--verification-guide)
 
 ---
 
@@ -203,11 +204,37 @@ graph LR
 
 ---
 
-## 5. Repository Structure
+## 5. Lab 2: Agile Backlog Creation & Sprint Simulation in Jira
+
+**Student:** Ganavi Gowda | **SRN:** PES1UG24CS707  
+Detailed documentation and simulation reports for **Lab 2** are maintained in the [`Lab-2-Agile-Jira/`](Lab-2-Agile-Jira/README.md) directory.
+
+### Highlights:
+- **Product Backlog & Epics**: 12 core user stories (`FFM-1` to `FFM-12` / `SCRUM-3` to `SCRUM-15`) mapped from requirements into Jira.
+- **Sprint Board**: Active sprint execution with 12 completed stories (100% of committed subtasks).
+- **Burndown Charts**: Sprint 0 and Sprint 1 burndown graphs tracking velocity and burn rate across 27 story points to zero remaining work.
+- **Reflection Analysis**: Comprehensive retrospective covering estimation accuracy, MoSCoW prioritization, velocity tracking, and capacity planning.
+
+> 📁 **Full Report & Documentation**: [Lab-2-Agile-Jira/README.md](Lab-2-Agile-Jira/README.md)  
+> 📄 **PDF Submission**: [Lab-2-Agile-Jira/SE_Lab 2_jira_Ganavi.pdf](Lab-2-Agile-Jira/SE_Lab%202_jira_Ganavi.pdf)  
+> 📝 **Word Doc**: [Lab-2-Agile-Jira/SE_Lab 2_jira_Ganavi.docx](Lab-2-Agile-Jira/SE_Lab%202_jira_Ganavi.docx)
+
+---
+
+## 6. Repository Structure
 
 ```
-feature-flag-manager/
-├── README.md                      # Main Lab 1 submission document
+feature-flag-dynamic-config-manager/
+├── README.md                      # Main project documentation (Lab 1 & Lab 2)
+├── Lab-2-Agile-Jira/             # Lab 2: Agile Jira Backlog & Sprint Simulation
+│   ├── README.md                  # Comprehensive Lab 2 report with tables & answers
+│   ├── SE_Lab 2_jira_Ganavi.pdf   # 4-page lab report PDF
+│   ├── SE_Lab 2_jira_Ganavi.docx  # Word document version
+│   └── screenshots/
+│       ├── jira_backlog.png       # Jira backlog with Epics & User Stories
+│       ├── sprint_board_active.png # Active sprint board view
+│       ├── burndown_chart_sprint_0.png # Sprint 0 burndown chart
+│       └── burndown_chart_sprint_1.png # Sprint 1 burndown chart (27 SP to 0)
 ├── docs/
 │   ├── requirements.md            # Standalone Requirements Table (5 FRs, 2 NFRs)
 │   ├── use-case-specification.md  # 1-page Use-Case Flow Specification (UC-01)
@@ -220,27 +247,21 @@ feature-flag-manager/
 
 ---
 
-## 6. Submission & Verification Guide
+## 7. Submission & Verification Guide
 
 ### Pushing to GitHub Account: `ganavigowda8343-ctrl`
 
-To upload this repository to GitHub under the account `ganavigowda8343-ctrl`, execute the following commands:
+To upload changes to GitHub under the account `ganavigowda8343-ctrl`:
 
 ```bash
 # 1. Navigate to the project directory
-cd /Users/macm2/.gemini/antigravity/scratch/feature-flag-manager
+cd /Users/apple/.gemini/antigravity/scratch/feature-flag-dynamic-config-manager
 
 # 2. Check git status
 git status
 
-# 3. Create a remote repository on GitHub named 'feature-flag-dynamic-config-manager'
-# (Or using GitHub CLI if logged in)
-# gh repo create ganavigowda8343-ctrl/feature-flag-dynamic-config-manager --public --source=. --remote=origin --push
-
-# 4. Or link an existing repository and push:
-git remote add origin https://github.com/ganavigowda8343-ctrl/feature-flag-dynamic-config-manager.git
-git branch -M main
-git push -u origin main
+# 3. Push commits to GitHub:
+git push origin main
 ```
 
 ---
