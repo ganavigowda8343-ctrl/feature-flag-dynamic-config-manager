@@ -1,0 +1,294 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Drop Shadow Filter -->
+    <filter id="shadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <filter id="layer-shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+
+    <!-- Component Icon Pattern -->
+    <g id="comp-icon">
+      <rect x="0" y="0" width="18" height="14" fill="#FFFFFF" stroke="#334155" stroke-width="1.2"/>
+      <rect x="-4" y="2" width="6" height="3" fill="#FFFFFF" stroke="#334155" stroke-width="1"/>
+      <rect x="-4" y="8" width="6" height="3" fill="#FFFFFF" stroke="#334155" stroke-width="1"/>
+    </g>
+  </defs>
+
+  <!-- Title Header Banner -->
+  <rect x="0" y="0" width="1200" height="60" fill="#0F172A"/>
+  <text x="600" y="28" fill="#F8FAFC" font-size="18" font-weight="bold" text-anchor="middle">UML 2.0 Component Diagram: Feature Flag &amp; Dynamic Config Manager</text>
+  <text x="600" y="48" fill="#94A3B8" font-size="12" text-anchor="middle">Architecture Style: Event-Driven Microservices Architecture | PES University Dept of CSE - Lab 3</text>
+
+  <!-- ==================== SUBSYSTEM / LAYER 1: PRESENTATION & CLIENTS ==================== -->
+  <rect x="40" y="80" width="1120" height="150" rx="10" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="6 4" filter="url(#layer-shadow)"/>
+  <text x="55" y="102" fill="#475569" font-size="12" font-weight="bold">«subsystem» Client &amp; Presentation Tier</text>
+
+  <!-- 1. Admin Dashboard Component -->
+  <g transform="translate(70, 115)" filter="url(#shadow)">
+    <rect x="0" y="0" width="280" height="95" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.8"/>
+    <use href="#comp-icon" x="252" y="8"/>
+    <text x="140" y="28" fill="#1E40AF" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="140" y="46" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Admin Dashboard</text>
+    <text x="140" y="62" fill="#475569" font-size="10" text-anchor="middle">SPA Web Console (React / Vite)</text>
+    <text x="140" y="78" fill="#64748B" font-size="9" text-anchor="middle">Software Engineers &amp; Release Managers</text>
+    <!-- Port p1 -->
+    <rect x="274" y="42" width="12" height="12" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1.2"/>
+  </g>
+
+  <!-- 2. Client Application & SDK Component -->
+  <g transform="translate(810, 115)" filter="url(#shadow)">
+    <rect x="0" y="0" width="320" height="95" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.8"/>
+    <use href="#comp-icon" x="292" y="8"/>
+    <text x="160" y="28" fill="#15803D" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="160" y="46" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Client SDK &amp; Local Evaluator</text>
+    <text x="160" y="62" fill="#475569" font-size="10" text-anchor="middle">In-Memory Engine (Go / Java / Python / JS)</text>
+    <text x="160" y="78" fill="#166534" font-size="9" text-anchor="middle">Sub-1ms Cached Lookups + Fallback</text>
+    <!-- Port pSDK -->
+    <rect x="-6" y="42" width="12" height="12" fill="#22C55E" stroke="#15803D" stroke-width="1.2"/>
+  </g>
+
+  <!-- ==================== SUBSYSTEM / LAYER 2: API GATEWAY & SECURITY ==================== -->
+  <g transform="translate(420, 115)" filter="url(#shadow)">
+    <rect x="0" y="0" width="310" height="95" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.8"/>
+    <use href="#comp-icon" x="282" y="8"/>
+    <text x="155" y="28" fill="#B45309" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="155" y="46" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">API Gateway &amp; Auth Guard</text>
+    <text x="155" y="62" fill="#475569" font-size="10" text-anchor="middle">Envoy / Kong Reverse Proxy</text>
+    <text x="155" y="78" fill="#92400E" font-size="9" text-anchor="middle">RBAC Token Validation &amp; Rate Limiting</text>
+    <!-- Ports -->
+    <rect x="-6" y="42" width="12" height="12" fill="#F59E0B" stroke="#B45309" stroke-width="1.2"/>
+    <rect x="150" y="89" width="12" height="12" fill="#F59E0B" stroke="#B45309" stroke-width="1.2"/>
+  </g>
+
+  <!-- ==================== ASSEMBLY CONNECTOR 1: Dashboard -> Gateway (IFlagAdminService) ==================== -->
+  <!-- Line from Dashboard Port to Ball/Socket -->
+  <line x1="356" y1="162" x2="382" y2="162" stroke="#2563EB" stroke-width="1.8"/>
+  <!-- Socket (Required by Dashboard) -->
+  <path d="M 382 153 A 9 9 0 0 1 382 171" fill="none" stroke="#2563EB" stroke-width="2"/>
+  <!-- Ball (Provided by Gateway) -->
+  <circle cx="388" cy="162" r="6" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+  <line x1="394" y1="162" x2="414" y2="162" stroke="#B45309" stroke-width="1.8"/>
+  <text x="385" y="142" fill="#1E40AF" font-size="9" font-weight="bold" text-anchor="middle">IFlagAdminService</text>
+  <text x="385" y="186" fill="#64748B" font-size="8" text-anchor="middle">[REST / HTTPS]</text>
+
+
+  <!-- ==================== SUBSYSTEM / LAYER 3: CORE MICROSERVICES ==================== -->
+  <rect x="40" y="270" width="1120" height="340" rx="10" fill="#FAFAFA" stroke="#64748B" stroke-width="1.5" stroke-dasharray="6 4" filter="url(#layer-shadow)"/>
+  <text x="55" y="292" fill="#334155" font-size="12" font-weight="bold">«subsystem» Core Microservices Layer</text>
+
+  <!-- 3. Flag & Rollout Manager Component -->
+  <g transform="translate(80, 315)" filter="url(#shadow)">
+    <rect x="0" y="0" width="310" height="120" rx="6" fill="#FDF4FF" stroke="#A855F7" stroke-width="1.8"/>
+    <use href="#comp-icon" x="282" y="8"/>
+    <text x="155" y="28" fill="#7E22CE" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="155" y="48" fill="#0F172A" font-size="14" font-weight="bold" text-anchor="middle">Flag &amp; Rollout Manager</text>
+    <text x="155" y="66" fill="#475569" font-size="10" text-anchor="middle">Environment Overrides &amp; Canary Allocator</text>
+    <text x="155" y="82" fill="#6B21A8" font-size="9" text-anchor="middle">Percentage Slider &amp; Lifecycle State Gate</text>
+    <text x="155" y="98" fill="#9333EA" font-size="9" text-anchor="middle">Emergency Instant Kill-Switch Controller</text>
+    <!-- Ports -->
+    <rect x="150" y="-6" width="12" height="12" fill="#A855F7" stroke="#7E22CE" stroke-width="1.2"/>
+    <rect x="304" y="54" width="12" height="12" fill="#A855F7" stroke="#7E22CE" stroke-width="1.2"/>
+    <rect x="150" y="114" width="12" height="12" fill="#A855F7" stroke="#7E22CE" stroke-width="1.2"/>
+  </g>
+
+  <!-- 4. Targeting & Rule Evaluation Engine Component -->
+  <g transform="translate(480, 315)" filter="url(#shadow)">
+    <rect x="0" y="0" width="300" height="120" rx="6" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.8"/>
+    <use href="#comp-icon" x="272" y="8"/>
+    <text x="150" y="28" fill="#B45309" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="150" y="48" fill="#0F172A" font-size="14" font-weight="bold" text-anchor="middle">Rule Evaluation Engine</text>
+    <text x="150" y="66" fill="#475569" font-size="10" text-anchor="middle">Consistent Hash &amp; Cohort Matcher</text>
+    <text x="150" y="82" fill="#92400E" font-size="9" text-anchor="middle">MurmurHash3 + Attribute Rule Evaluator</text>
+    <text x="150" y="98" fill="#B45309" font-size="9" text-anchor="middle">JSON Schema &amp; Syntax Verification</text>
+    <!-- Ports -->
+    <rect x="-6" y="54" width="12" height="12" fill="#F59E0B" stroke="#B45309" stroke-width="1.2"/>
+    <rect x="294" y="54" width="12" height="12" fill="#F59E0B" stroke="#B45309" stroke-width="1.2"/>
+    <rect x="150" y="114" width="12" height="12" fill="#F59E0B" stroke="#B45309" stroke-width="1.2"/>
+  </g>
+
+  <!-- 5. Real-Time Streaming & Distribution Component -->
+  <g transform="translate(860, 315)" filter="url(#shadow)">
+    <rect x="0" y="0" width="270" height="120" rx="6" fill="#ECFDF5" stroke="#059669" stroke-width="1.8"/>
+    <use href="#comp-icon" x="242" y="8"/>
+    <text x="135" y="28" fill="#047857" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="135" y="48" fill="#0F172A" font-size="14" font-weight="bold" text-anchor="middle">Streaming Distribution Service</text>
+    <text x="135" y="66" fill="#475569" font-size="10" text-anchor="middle">Real-Time Event Streamer</text>
+    <text x="135" y="82" fill="#065F46" font-size="9" text-anchor="middle">SSE / WebSocket Broadcast Hub</text>
+    <text x="135" y="98" fill="#047857" font-size="9" text-anchor="middle">&lt; 2s Delta Sync to 100k+ SDKs</text>
+    <!-- Ports -->
+    <rect x="-6" y="54" width="12" height="12" fill="#10B981" stroke="#047857" stroke-width="1.2"/>
+    <rect x="135" y="-6" width="12" height="12" fill="#10B981" stroke="#047857" stroke-width="1.2"/>
+    <rect x="135" y="114" width="12" height="12" fill="#10B981" stroke="#047857" stroke-width="1.2"/>
+  </g>
+
+  <!-- 6. Audit & Incident Notification Component -->
+  <g transform="translate(80, 475)" filter="url(#shadow)">
+    <rect x="0" y="0" width="310" height="110" rx="6" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.8"/>
+    <use href="#comp-icon" x="282" y="8"/>
+    <text x="155" y="26" fill="#B91C1C" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="155" y="46" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Audit &amp; Incident Dispatcher</text>
+    <text x="155" y="64" fill="#475569" font-size="10" text-anchor="middle">Immutable Audit Ledger &amp; SIEM</text>
+    <text x="155" y="80" fill="#991B1B" font-size="9" text-anchor="middle">Kill-Switch PagerDuty / Webhook Emitter</text>
+    <!-- Ports -->
+    <rect x="150" y="-6" width="12" height="12" fill="#EF4444" stroke="#B91C1C" stroke-width="1.2"/>
+    <rect x="304" y="50" width="12" height="12" fill="#EF4444" stroke="#B91C1C" stroke-width="1.2"/>
+  </g>
+
+  <!-- 7. Telemetry & Analytics Aggregator Component -->
+  <g transform="translate(480, 475)" filter="url(#shadow)">
+    <rect x="0" y="0" width="300" height="110" rx="6" fill="#F0FDF4" stroke="#10B981" stroke-width="1.8"/>
+    <use href="#comp-icon" x="272" y="8"/>
+    <text x="150" y="26" fill="#047857" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="150" y="46" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Telemetry &amp; Metrics Aggregator</text>
+    <text x="150" y="64" fill="#475569" font-size="10" text-anchor="middle">Prometheus / OpenTelemetry Metrics</text>
+    <text x="150" y="80" fill="#065F46" font-size="9" text-anchor="middle">P99 Latency &amp; Error Rate Profiling</text>
+    <!-- Ports -->
+    <rect x="-6" y="50" width="12" height="12" fill="#10B981" stroke="#047857" stroke-width="1.2"/>
+    <rect x="150" y="104" width="12" height="12" fill="#10B981" stroke="#047857" stroke-width="1.2"/>
+  </g>
+
+
+  <!-- ==================== ASSEMBLY CONNECTORS IN MIDDLE TIER ==================== -->
+
+  <!-- Gateway -> Flag Manager Connector -->
+  <line x1="575" y1="222" x2="575" y2="245" stroke="#D97706" stroke-width="1.8"/>
+  <path d="M 575 245 L 235 245 L 235 290" fill="none" stroke="#D97706" stroke-width="1.8"/>
+  <!-- Ball provided by Flag Manager -->
+  <circle cx="235" cy="290" r="6" fill="#A855F7" stroke="#7E22CE" stroke-width="2"/>
+  <!-- Socket required by Gateway -->
+  <path d="M 226 280 A 9 9 0 0 1 244 280" fill="none" stroke="#D97706" stroke-width="2"/>
+  <line x1="235" y1="296" x2="235" y2="309" stroke="#A855F7" stroke-width="1.8"/>
+  <text x="350" y="238" fill="#7E22CE" font-size="9" font-weight="bold">IRolloutConfigService [Internal gRPC / mTLS]</text>
+
+  <!-- Flag Manager -> Rule Engine Connector (IRuleEvaluation) -->
+  <line x1="396" y1="375" x2="425" y2="375" stroke="#A855F7" stroke-width="1.8"/>
+  <!-- Socket required by Flag Manager -->
+  <path d="M 425 366 A 9 9 0 0 1 425 384" fill="none" stroke="#A855F7" stroke-width="2"/>
+  <!-- Ball provided by Rule Engine -->
+  <circle cx="431" cy="375" r="6" fill="#F59E0B" stroke="#B45309" stroke-width="2"/>
+  <line x1="437" y1="375" x2="474" y2="375" stroke="#F59E0B" stroke-width="1.8"/>
+  <text x="430" y="358" fill="#B45309" font-size="9" font-weight="bold" text-anchor="middle">IRuleEvaluation</text>
+  <text x="430" y="398" fill="#64748B" font-size="8" text-anchor="middle">[gRPC / IPC]</text>
+
+  <!-- Rule Engine -> Streaming Service Connector (IStreamBroadcast) -->
+  <line x1="786" y1="375" x2="812" y2="375" stroke="#F59E0B" stroke-width="1.8"/>
+  <!-- Socket required by Rule Engine -->
+  <path d="M 812 366 A 9 9 0 0 1 812 384" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <!-- Ball provided by Streaming Service -->
+  <circle cx="818" cy="375" r="6" fill="#10B981" stroke="#047857" stroke-width="2"/>
+  <line x1="824" y1="375" x2="854" y2="375" stroke="#10B981" stroke-width="1.8"/>
+  <text x="818" y="358" fill="#047857" font-size="9" font-weight="bold" text-anchor="middle">IStreamBroadcast</text>
+  <text x="818" y="398" fill="#64748B" font-size="8" text-anchor="middle">[Pub/Sub Sync]</text>
+
+  <!-- Streaming Service -> Client SDK Connector (IConfigStream) -->
+  <line x1="995" y1="309" x2="995" y2="265" stroke="#10B981" stroke-width="1.8"/>
+  <!-- Ball provided by Streaming Service -->
+  <circle cx="995" cy="265" r="6" fill="#10B981" stroke="#047857" stroke-width="2"/>
+  <!-- Socket required by Client SDK -->
+  <path d="M 986 255 A 9 9 0 0 1 1004 255" fill="none" stroke="#22C55E" stroke-width="2"/>
+  <line x1="995" y1="246" x2="995" y2="216" stroke="#22C55E" stroke-width="1.8"/>
+  <text x="1065" y="260" fill="#047857" font-size="9" font-weight="bold">IConfigStream</text>
+  <text x="1065" y="274" fill="#64748B" font-size="8">[SSE / WebSockets]</text>
+
+  <!-- Flag Manager -> Audit Logger Connector (IAuditLogger) -->
+  <line x1="235" y1="441" x2="235" y2="455" stroke="#A855F7" stroke-width="1.8"/>
+  <!-- Socket required by Flag Manager -->
+  <path d="M 226 455 A 9 9 0 0 1 244 455" fill="none" stroke="#A855F7" stroke-width="2"/>
+  <!-- Ball provided by Audit Logger -->
+  <circle cx="235" cy="461" r="6" fill="#EF4444" stroke="#B91C1C" stroke-width="2"/>
+  <line x1="235" y1="467" x2="235" y2="469" stroke="#EF4444" stroke-width="1.8"/>
+  <text x="290" y="460" fill="#B91C1C" font-size="9" font-weight="bold">IAuditLogger [Async Event/TLS]</text>
+
+  <!-- Audit Logger -> Telemetry Connector -->
+  <line x1="396" y1="530" x2="425" y2="530" stroke="#EF4444" stroke-width="1.8"/>
+  <!-- Socket required by Audit -->
+  <path d="M 425 521 A 9 9 0 0 1 425 539" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <!-- Ball provided by Telemetry -->
+  <circle cx="431" cy="530" r="6" fill="#10B981" stroke="#047857" stroke-width="2"/>
+  <line x1="437" y1="530" x2="474" y2="530" stroke="#10B981" stroke-width="1.8"/>
+  <text x="430" y="514" fill="#047857" font-size="9" font-weight="bold" text-anchor="middle">ITelemetryMetrics</text>
+  <text x="430" y="552" fill="#64748B" font-size="8" text-anchor="middle">[OTel Exporter]</text>
+
+
+  <!-- ==================== SUBSYSTEM / LAYER 4: PERSISTENCE & DATA ==================== -->
+  <rect x="40" y="650" width="1120" height="150" rx="10" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5" stroke-dasharray="6 4" filter="url(#layer-shadow)"/>
+  <text x="55" y="672" fill="#334155" font-size="12" font-weight="bold">«subsystem» Data Persistence &amp; Caching Tier</text>
+
+  <!-- 8. Relational Data Store Component -->
+  <g transform="translate(180, 690)" filter="url(#shadow)">
+    <rect x="0" y="0" width="360" height="90" rx="6" fill="#F1F5F9" stroke="#475569" stroke-width="1.8"/>
+    <use href="#comp-icon" x="332" y="8"/>
+    <text x="180" y="26" fill="#334155" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="180" y="44" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Configuration Relational Data Store</text>
+    <text x="180" y="62" fill="#475569" font-size="10" text-anchor="middle">PostgreSQL / Amazon Aurora (ACID Compliant)</text>
+    <text x="180" y="78" fill="#64748B" font-size="9" text-anchor="middle">Flag Definitions, RBAC, Environments, Audit Log</text>
+    <!-- Port -->
+    <rect x="174" y="-6" width="12" height="12" fill="#475569" stroke="#334155" stroke-width="1.2"/>
+  </g>
+
+  <!-- 9. Distributed In-Memory Cache Component -->
+  <g transform="translate(680, 690)" filter="url(#shadow)">
+    <rect x="0" y="0" width="360" height="90" rx="6" fill="#FFF1F2" stroke="#E11D48" stroke-width="1.8"/>
+    <use href="#comp-icon" x="332" y="8"/>
+    <text x="180" y="26" fill="#BE123C" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="180" y="44" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Distributed Real-Time Cache</text>
+    <text x="180" y="62" fill="#475569" font-size="10" text-anchor="middle">Redis Cluster / DragonFly (In-Memory Key-Value)</text>
+    <text x="180" y="78" fill="#9F1239" font-size="9" text-anchor="middle">Sub-Millisecond Hot Snapshot &amp; Pub/Sub Queue</text>
+    <!-- Port -->
+    <rect x="174" y="-6" width="12" height="12" fill="#E11D48" stroke="#BE123C" stroke-width="1.2"/>
+  </g>
+
+  <!-- Database Connector (IDataAccess) -->
+  <line x1="235" y1="441" x2="235" y2="600" stroke="#A855F7" stroke-width="1.8"/>
+  <path d="M 235 600 L 354 600 L 354 650" fill="none" stroke="#A855F7" stroke-width="1.8"/>
+  <!-- Socket required by Flag Manager -->
+  <path d="M 345 650 A 9 9 0 0 1 363 650" fill="none" stroke="#A855F7" stroke-width="2"/>
+  <!-- Ball provided by DB -->
+  <circle cx="354" cy="656" r="6" fill="#475569" stroke="#334155" stroke-width="2"/>
+  <line x1="354" y1="662" x2="354" y2="684" stroke="#475569" stroke-width="1.8"/>
+  <text x="354" y="635" fill="#334155" font-size="9" font-weight="bold" text-anchor="middle">IDataPersistence [SQL / TCP Driver]</text>
+
+  <!-- Cache Connector (ICacheStore) -->
+  <line x1="630" y1="441" x2="630" y2="600" stroke="#F59E0B" stroke-width="1.8"/>
+  <path d="M 630 600 L 854 600 L 854 650" fill="none" stroke="#F59E0B" stroke-width="1.8"/>
+  <!-- Socket required by Rule Engine & Streaming -->
+  <path d="M 845 650 A 9 9 0 0 1 863 650" fill="none" stroke="#F59E0B" stroke-width="2"/>
+  <!-- Ball provided by Redis -->
+  <circle cx="854" cy="656" r="6" fill="#E11D48" stroke="#BE123C" stroke-width="2"/>
+  <line x1="854" y1="662" x2="854" y2="684" stroke="#E11D48" stroke-width="1.8"/>
+  <text x="854" y="635" fill="#BE123C" font-size="9" font-weight="bold" text-anchor="middle">ICacheStore [Redis RESP / In-Memory]</text>
+
+  <!-- ==================== LEGEND FOOTER ==================== -->
+  <g transform="translate(40, 815)">
+    <rect x="0" y="0" width="1120" height="65" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="20" y="24" fill="#0F172A" font-size="11" font-weight="bold">UML Notation Legend:</text>
+    
+    <!-- Component Box -->
+    <rect x="160" y="10" width="110" height="22" rx="3" fill="#EFF6FF" stroke="#2563EB" stroke-width="1"/>
+    <use href="#comp-icon" x="250" y="14"/>
+    <text x="205" y="25" fill="#1E40AF" font-size="10" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    
+    <!-- Provided Interface (Ball) -->
+    <line x1="310" y1="21" x2="330" y2="21" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="336" cy="21" r="5" fill="#FFFFFF" stroke="#334155" stroke-width="1.8"/>
+    <text x="350" y="25" fill="#334155" font-size="10">Provided Interface (Ball / Lollipop)</text>
+
+    <!-- Required Interface (Socket) -->
+    <line x1="570" y1="21" x2="590" y2="21" stroke="#334155" stroke-width="1.5"/>
+    <path d="M 590 14 A 7 7 0 0 1 590 28" fill="none" stroke="#334155" stroke-width="1.8"/>
+    <text x="605" y="25" fill="#334155" font-size="10">Required Interface (Socket)</text>
+
+    <!-- Assembly Connector -->
+    <circle cx="800" cy="21" r="5" fill="#FFFFFF" stroke="#334155" stroke-width="1.8"/>
+    <path d="M 794 14 A 7 7 0 0 1 794 28" fill="none" stroke="#334155" stroke-width="1.8"/>
+    <text x="815" y="25" fill="#334155" font-size="10">Assembly Connector (Ball-and-Socket Joint)</text>
+
+    <!-- Subsystem Port -->
+    <rect x="160" y="40" width="10" height="10" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1"/>
+    <text x="180" y="49" fill="#334155" font-size="10">Port: Explicit Interaction Point on Boundary</text>
+
+    <text x="570" y="49" fill="#0369A1" font-size="10" font-weight="bold">Protocols: REST/HTTPS, gRPC/mTLS, SSE/WebSockets, Redis RESP, SQL/TCP</text>
+  </g>
+</svg>

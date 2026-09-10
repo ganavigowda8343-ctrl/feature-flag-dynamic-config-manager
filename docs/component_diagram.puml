@@ -1,0 +1,70 @@
+@startuml
+!theme plain
+skinparam componentStyle uml2
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+
+title UML 2.0 Component Diagram: Feature Flag & Dynamic Config Manager\n(Microservices & Event-Driven Architecture)
+
+package "Client & Ingress Subsystem" {
+    [Admin Dashboard] <<component>> as UI #EFF6FF
+    [Client SDK & In-Memory Engine] <<component>> as SDK #F0FDF4
+    [API Gateway & Auth Guard] <<component>> as Gateway #FEF3C7
+}
+
+package "Core Microservices Subsystem" {
+    [Flag & Rollout Manager] <<component>> as FlagMgr #FDF4FF
+    [Targeting & Rule Evaluation Engine] <<component>> as RuleEngine #FFFBEB
+    [Real-Time Streaming Distribution Service] <<component>> as StreamService #ECFDF5
+    [Audit & Incident Dispatcher] <<component>> as AuditService #FEF2F2
+    [Telemetry & Metrics Aggregator] <<component>> as TelemetryService #F0FDF4
+}
+
+package "Persistence & Caching Tier" {
+    database "PostgreSQL Relational DB" as DB #F1F5F9 {
+        [Configuration Relational Store] <<component>> as DBComp
+    }
+    database "Redis Cluster" as Redis #FFF1F2 {
+        [Distributed Real-Time Cache] <<component>> as CacheComp
+    }
+}
+
+' Interface Definitions
+interface "IFlagAdminService\n[REST / HTTPS]" as IFlagAdmin
+interface "IRolloutConfigService\n[gRPC / mTLS]" as IRolloutConfig
+interface "IRuleEvaluation\n[gRPC / IPC]" as IRuleEval
+interface "IConfigStream\n[SSE / WebSockets]" as IConfigStream
+interface "IAuditLogger\n[Async Event / TLS]" as IAuditLog
+interface "IDataPersistence\n[SQL / TCP Driver]" as IDataPersistence
+interface "ICacheStore\n[Redis RESP / In-Memory]" as ICacheStore
+interface "ITelemetryMetrics\n[OTel / Prometheus]" as ITelemetry
+
+' Connections and Assembly Connectors
+UI -( IFlagAdmin
+IFlagAdmin - Gateway
+
+Gateway -( IRolloutConfig
+IRolloutConfig - FlagMgr
+
+FlagMgr -( IRuleEval
+IRuleEval - RuleEngine
+
+RuleEngine -( IConfigStream
+IConfigStream - StreamService
+
+StreamService -(0- SDK : "Real-time updates (<2s)"
+
+FlagMgr -( IAuditLog
+IAuditLog - AuditService
+
+AuditService -( ITelemetry
+ITelemetry - TelemetryService
+
+FlagMgr -( IDataPersistence
+IDataPersistence - DBComp
+
+RuleEngine -( ICacheStore
+StreamService -( ICacheStore
+ICacheStore - CacheComp
+
+@enduml

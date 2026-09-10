@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <filter id="kshadow" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <g id="kcomp-icon">
+      <rect x="0" y="0" width="16" height="12" fill="#FFFFFF" stroke="#334155" stroke-width="1.2"/>
+      <rect x="-3" y="2" width="5" height="2.5" fill="#FFFFFF" stroke="#334155" stroke-width="1"/>
+      <rect x="-3" y="7" width="5" height="2.5" fill="#FFFFFF" stroke="#334155" stroke-width="1"/>
+    </g>
+  </defs>
+
+  <!-- Title Banner -->
+  <rect x="0" y="0" width="1000" height="55" fill="#451A03"/>
+  <text x="500" y="28" fill="#FEF3C7" font-size="17" font-weight="bold" text-anchor="middle">UML Component Diagram: Self-Service Coffee Kiosk System</text>
+  <text x="500" y="46" fill="#FDE68A" font-size="11" text-anchor="middle">Layered Architecture Style | PES University Dept of CSE - Lab 3 Example Scenario</text>
+
+  <!-- LAYER 1: Presentation Layer -->
+  <rect x="50" y="75" width="900" height="130" rx="8" fill="#FFFBEB" stroke="#D97706" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="65" y="96" fill="#92400E" font-size="12" font-weight="bold">Presentation Layer (Touch Screen Interaction)</text>
+
+  <g transform="translate(360, 105)" filter="url(#kshadow)">
+    <rect x="0" y="0" width="280" height="80" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="1.8"/>
+    <use href="#kcomp-icon" x="254" y="8"/>
+    <text x="140" y="26" fill="#B45309" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="140" y="46" fill="#78350F" font-size="13" font-weight="bold" text-anchor="middle">User Interface Component</text>
+    <text x="140" y="64" fill="#92400E" font-size="10" text-anchor="middle">Touch Screen Menu &amp; Drink Selection</text>
+    <rect x="134" y="74" width="12" height="12" fill="#F59E0B" stroke="#B45309" stroke-width="1.2"/>
+  </g>
+
+  <!-- LAYER 2: Business Logic Layer -->
+  <rect x="50" y="235" width="900" height="230" rx="8" fill="#F8FAFC" stroke="#64748B" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="65" y="256" fill="#334155" font-size="12" font-weight="bold">Business Logic Layer (Order &amp; Peripheral Management)</text>
+
+  <!-- Order Manager Component -->
+  <g transform="translate(360, 275)" filter="url(#kshadow)">
+    <rect x="0" y="0" width="280" height="85" rx="6" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.8"/>
+    <use href="#kcomp-icon" x="254" y="8"/>
+    <text x="140" y="24" fill="#1E40AF" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="140" y="44" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Order Manager Component</text>
+    <text x="140" y="62" fill="#475569" font-size="10" text-anchor="middle">Order Workflow &amp; Cart State Management</text>
+    <rect x="134" y="-6" width="12" height="12" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1.2"/>
+    <rect x="-6" y="36" width="12" height="12" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1.2"/>
+    <rect x="134" y="79" width="12" height="12" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1.2"/>
+    <rect x="274" y="36" width="12" height="12" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1.2"/>
+  </g>
+
+  <!-- Payment Service Component -->
+  <g transform="translate(80, 375)" filter="url(#kshadow)">
+    <rect x="0" y="0" width="240" height="75" rx="6" fill="#F0FDF4" stroke="#16A34A" stroke-width="1.8"/>
+    <use href="#kcomp-icon" x="214" y="8"/>
+    <text x="120" y="24" fill="#15803D" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="120" y="42" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Payment Service Component</text>
+    <text x="120" y="58" fill="#475569" font-size="10" text-anchor="middle">Credit Card Gateway (EMV / NFC)</text>
+    <rect x="234" y="30" width="12" height="12" fill="#22C55E" stroke="#15803D" stroke-width="1.2"/>
+  </g>
+
+  <!-- Receipt Printer Component -->
+  <g transform="translate(680, 375)" filter="url(#kshadow)">
+    <rect x="0" y="0" width="240" height="75" rx="6" fill="#FAF5FF" stroke="#9333EA" stroke-width="1.8"/>
+    <use href="#kcomp-icon" x="214" y="8"/>
+    <text x="120" y="24" fill="#7E22CE" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="120" y="42" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Receipt Printer Component</text>
+    <text x="120" y="58" fill="#475569" font-size="10" text-anchor="middle">ESC/POS Thermal Printer Driver</text>
+    <rect x="-6" y="30" width="12" height="12" fill="#A855F7" stroke="#7E22CE" stroke-width="1.2"/>
+  </g>
+
+  <!-- LAYER 3: Data Layer -->
+  <rect x="50" y="495" width="900" height="125" rx="8" fill="#F1F5F9" stroke="#475569" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="65" y="516" fill="#1E293B" font-size="12" font-weight="bold">Data Layer (Persistent Storage)</text>
+
+  <!-- Database Component -->
+  <g transform="translate(360, 525)" filter="url(#kshadow)">
+    <rect x="0" y="0" width="280" height="75" rx="6" fill="#FFFFFF" stroke="#334155" stroke-width="1.8"/>
+    <use href="#kcomp-icon" x="254" y="8"/>
+    <text x="140" y="24" fill="#334155" font-size="11" font-weight="bold" text-anchor="middle">&lt;&lt;component&gt;&gt;</text>
+    <text x="140" y="42" fill="#0F172A" font-size="13" font-weight="bold" text-anchor="middle">Database Component</text>
+    <text x="140" y="58" fill="#475569" font-size="10" text-anchor="middle">SQLite / Menu, Sizes &amp; Pricing Data</text>
+    <rect x="134" y="-6" width="12" height="12" fill="#64748B" stroke="#334155" stroke-width="1.2"/>
+  </g>
+
+  <!-- CONNECTORS WITH BALL AND SOCKET NOTATION -->
+
+  <!-- UI -> Order Manager (Order Interface) -->
+  <line x1="500" y1="185" x2="500" y2="215" stroke="#D97706" stroke-width="1.8"/>
+  <path d="M 491 215 A 9 9 0 0 1 509 215" fill="none" stroke="#D97706" stroke-width="2"/>
+  <circle cx="500" cy="225" r="6" fill="#3B82F6" stroke="#1D4ED8" stroke-width="2"/>
+  <line x1="500" y1="231" x2="500" y2="269" stroke="#3B82F6" stroke-width="1.8"/>
+  <text x="565" y="222" fill="#1D4ED8" font-size="9" font-weight="bold">Order Interface</text>
+  <text x="565" y="235" fill="#64748B" font-size="8">[In-Process Method Calls]</text>
+
+  <!-- Order Manager -> Payment Service (Payment Interface) -->
+  <line x1="354" y1="311" x2="250" y2="311" stroke="#2563EB" stroke-width="1.8"/>
+  <path d="M 250 311 L 250 345 L 210 345" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+  <path d="M 200 336 A 9 9 0 0 1 200 354" fill="none" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="206" cy="345" r="6" fill="#22C55E" stroke="#15803D" stroke-width="2"/>
+  <path d="M 212 345 L 220 345 L 220 405 L 320 405" fill="none" stroke="#22C55E" stroke-width="1.8"/>
+  <text x="210" y="328" fill="#15803D" font-size="9" font-weight="bold" text-anchor="middle">Payment Interface</text>
+  <text x="210" y="370" fill="#64748B" font-size="8" text-anchor="middle">[PCI-DSS Card Terminal API]</text>
+
+  <!-- Order Manager -> Receipt Printer (Receipt Interface) -->
+  <line x1="646" y1="311" x2="760" y2="311" stroke="#2563EB" stroke-width="1.8"/>
+  <path d="M 760 311 L 760 345 L 795 345" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+  <path d="M 795 336 A 9 9 0 0 0 795 354" fill="none" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="789" cy="345" r="6" fill="#A855F7" stroke="#7E22CE" stroke-width="2"/>
+  <path d="M 783 345 L 775 345 L 775 405 L 674 405" fill="none" stroke="#A855F7" stroke-width="1.8"/>
+  <text x="790" y="328" fill="#7E22CE" font-size="9" font-weight="bold" text-anchor="middle">Receipt Interface</text>
+  <text x="790" y="370" fill="#64748B" font-size="8" text-anchor="middle">[USB / Serial Hardware Driver]</text>
+
+  <!-- Order Manager -> Database (Database Interface) -->
+  <line x1="500" y1="360" x2="500" y2="425" stroke="#2563EB" stroke-width="1.8"/>
+  <path d="M 491 425 A 9 9 0 0 1 509 425" fill="none" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="500" cy="435" r="6" fill="#64748B" stroke="#334155" stroke-width="2"/>
+  <line x1="500" y1="441" x2="500" y2="519" stroke="#64748B" stroke-width="1.8"/>
+  <text x="570" y="432" fill="#334155" font-size="9" font-weight="bold">Database Interface</text>
+  <text x="570" y="445" fill="#64748B" font-size="8">[SQL Queries / SQLite Connection]</text>
+
+  <!-- Notation Legend -->
+  <g transform="translate(50, 635)">
+    <rect x="0" y="0" width="900" height="50" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="20" y="22" fill="#0F172A" font-size="11" font-weight="bold">Legend:</text>
+    <circle cx="95" cy="22" r="5" fill="#FFFFFF" stroke="#334155" stroke-width="1.8"/>
+    <path d="M 90 15 A 7 7 0 0 1 90 29" fill="none" stroke="#334155" stroke-width="1.8"/>
+    <text x="110" y="25" fill="#334155" font-size="10">Assembly Connector (Ball = Provided, Socket = Required)</text>
+    <rect x="440" y="16" width="10" height="10" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1"/>
+    <text x="460" y="25" fill="#334155" font-size="10">Port (Interaction Point)</text>
+    <text x="610" y="25" fill="#B45309" font-size="10" font-weight="bold">Pattern: Layered Architecture (Presentation → Business → Data)</text>
+  </g>
+</svg>

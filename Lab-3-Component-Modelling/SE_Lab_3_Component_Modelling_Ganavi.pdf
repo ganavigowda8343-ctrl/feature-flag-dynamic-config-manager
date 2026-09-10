@@ -1,0 +1,95 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Contents 7 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 842] /Contents 8 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+7 0 obj
+<< /Length 2436 >>
+stream
+BT /F2 18 Tf 50 780 Td (PES UNIVERSITY - DEPARTMENT OF CSE) Tj ET
+BT /F1 12 Tf 50 760 Td (Software Engineering Lab - Lab 3: Component Modelling & Architecture Selection) Tj ET
+BT /F1 10 Tf 50 745 Td (Student: Ganavi Gowda | SRN: PES1UG24CS707 | Problem Statement #43) Tj ET
+0.2 0.4 0.7 rg 50 735 500 1.5 re f
+BT /F2 14 Tf 50 710 Td (1. Objective & Learning Outcomes) Tj ET
+BT /F1 10 Tf 50 690 Td (Evaluate architectural styles, select the optimal pattern for Feature Flag Manager,) Tj ET
+BT /F1 10 Tf 50 675 Td (and construct formal UML 2.0 Component Diagrams with ball-and-socket notation.) Tj ET
+BT /F2 14 Tf 50 645 Td (2. Architectural Style Comparison) Tj ET
+BT /F2 10 Tf 50 625 Td (Layered Architecture:) Tj /F1 10 Tf 120 0 Td (Monolithic; database bottleneck under 50k req/s [Poor Fit].) Tj ET
+BT /F2 10 Tf 50 605 Td (Client-Server:) Tj /F1 10 Tf 90 0 Td (Centralized server exhaustion under 100k+ SDK connections [Poor Fit].) Tj ET
+BT /F2 10 Tf 50 585 Td (Event-Driven Microservices:) Tj /F1 10 Tf 160 0 Td (Independent autoscaling & sub-1ms edge caching [Selected: Best Fit].) Tj ET
+BT /F2 14 Tf 50 555 Td (3. Architecture Selection Statement) Tj ET
+0.95 0.97 1.0 rg 50 515 500 28 re f 0.0 0.4 0.8 RG 50 515 500 28 re S
+BT /F2 10 Tf 60 528 Td (We chose Event-Driven Microservices Architecture with Edge-Cached SDK Evaluation.) Tj ET
+BT /F2 14 Tf 50 490 Td (4. Identified Components & Interfaces) Tj ET
+BT /F1 9.5 Tf 60 470 Td (1. Admin Dashboard Component - React SPA Web Console [IFlagAdminService]) Tj ET
+BT /F1 9.5 Tf 60 455 Td (2. API Gateway & Auth Guard Component - Reverse proxy & RBAC [mTLS]) Tj ET
+BT /F1 9.5 Tf 60 440 Td (3. Flag & Rollout Manager - Environment overrides & Kill-Switch [IRolloutConfig]) Tj ET
+BT /F1 9.5 Tf 60 425 Td (4. Rule Evaluation Engine - MurmurHash3 consistent hashing [IRuleEvaluation]) Tj ET
+BT /F1 9.5 Tf 60 410 Td (5. Streaming Distribution Service - Real-time SSE/WebSocket hub (<2s delta sync)) Tj ET
+BT /F1 9.5 Tf 60 395 Td (6. Audit & Incident Dispatcher - Immutable audit ledger & PagerDuty alerts) Tj ET
+BT /F1 9.5 Tf 60 380 Td (7. Persistence Tier - PostgreSQL Relational DB + Redis Distributed Cache) Tj ET
+BT /F1 9.5 Tf 60 365 Td (8. Client SDK & In-Memory Evaluator - Sub-1ms local cached evaluation) Tj ET
+BT /F2 11 Tf 50 335 Td (Key Interfaces:) Tj /F1 9.5 Tf 100 0 Td (REST/HTTPS, gRPC/mTLS, SSE/WebSockets, Redis RESP, SQL/TCP) Tj ET
+BT /F1 9 Tf 250 30 Td (Page 1 of 2) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Length 2275 >>
+stream
+BT /F2 16 Tf 50 780 Td (5. Written Architectural Justification (1-Page Formal)) Tj ET
+0.2 0.4 0.7 rg 50 770 500 1.5 re f
+BT /F2 12 Tf 50 745 Td (A. Architectural Choice:) Tj ET
+BT /F1 10 Tf 50 728 Td (We selected an Event-Driven Microservices Architecture with Edge-Cached SDK Evaluation.) Tj ET
+BT /F2 12 Tf 50 695 Td (B. Two Specific Scenario-Related Reasons:) Tj ET
+BT /F2 10 Tf 50 675 Td (1. Asymmetric Workload & Independent Autoscaling:) Tj ET
+BT /F1 9.5 Tf 60 658 Td (Administrative mutations occur at low frequency (<10 req/min), whereas SDK evaluation) Tj ET
+BT /F1 9.5 Tf 60 644 Td (traffic occurs at immense scale (>100,000 req/sec). Microservices enable independent) Tj ET
+BT /F1 9.5 Tf 60 630 Td (scaling of Streaming Services without over-provisioning database-backed CRUD services.) Tj ET
+BT /F2 10 Tf 50 605 Td (2. Fault Isolation & Blast Radius Containment:) Tj ET
+BT /F1 9.5 Tf 60 588 Td (Under high stress or database downtime, the critical flag evaluation pipeline remains) Tj ET
+BT /F1 9.5 Tf 60 574 Td (fully functional because SDKs evaluate against local memory and Redis caches.) Tj ET
+BT /F2 12 Tf 50 540 Td (C. Security Advantage:) Tj ET
+BT /F1 9.5 Tf 50 522 Td (The API Gateway enforces Role-Based Access Control (RBAC) and MFA on write paths.) Tj ET
+BT /F1 9.5 Tf 50 508 Td (Internal microservices communicate over mutual TLS (mTLS) with identity tokens, isolating) Tj ET
+BT /F1 9.5 Tf 50 494 Td (sensitive production override rules from publicly accessible SDK endpoints.) Tj ET
+BT /F2 12 Tf 50 460 Td (D. Performance Benefit:) Tj ET
+BT /F1 9.5 Tf 50 442 Td (Using local in-memory SDK cached evaluation updated via Server-Sent Events (SSE),) Tj ET
+BT /F1 9.5 Tf 50 428 Td (evaluations execute in <1ms without network overhead, and global rollout changes) Tj ET
+BT /F1 9.5 Tf 50 414 Td (propagate across distributed fleets in <2 seconds without database bottlenecks.) Tj ET
+0.9 0.9 0.9 rg 50 375 500 1 re f
+BT /F2 12 Tf 50 350 Td (6. UML Component Diagram & Artifacts) Tj ET
+BT /F1 9.5 Tf 50 330 Td (The vector UML 2.0 Component Diagram with ball-and-socket assembly connectors) Tj ET
+BT /F1 9.5 Tf 50 315 Td (is available in the repository at assets/component_diagram.svg & component_diagram.puml.) Tj ET
+BT /F1 9 Tf 250 30 Td (Page 2 of 2) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000121 00000 n 
+0000000257 00000 n 
+0000000393 00000 n 
+0000000463 00000 n 
+0000000538 00000 n 
+0000003026 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+5353
+%%EOF

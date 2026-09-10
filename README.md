@@ -21,8 +21,9 @@
    - [Actors & Stereotype Justifications](#33-actors--stereotype-justifications)
 4. [Use-Case Flow Specification (UC-01)](#4-use-case-flow-specification-uc-01)
 5. [Lab 2: Agile Backlog Creation & Sprint Simulation in Jira](#5-lab-2-agile-backlog-creation--sprint-simulation-in-jira)
-6. [Repository Structure](#6-repository-structure)
-7. [Submission & Verification Guide](#7-submission--verification-guide)
+6. [Lab 3: Component Modelling & Architectural Pattern Selection](#6-lab-3-component-modelling--architectural-pattern-selection)
+7. [Repository Structure](#7-repository-structure)
+8. [Submission & Verification Guide](#8-submission--verification-guide)
 
 ---
 
@@ -221,37 +222,88 @@ Detailed documentation and simulation reports for **Lab 2** are maintained in th
 
 ---
 
-## 6. Repository Structure
+---
+
+## 6. Lab 3: Component Modelling & Architectural Pattern Selection
+
+**Student:** Ganavi Gowda | **SRN:** PES1UG24CS707  
+Detailed documentation, diagrams, and written justifications for **Lab 3** are maintained in the [`Lab-3-Component-Modelling/`](Lab-3-Component-Modelling/README.md) directory.
+
+### Highlights:
+- **Architectural Style Evaluation**: Comparative analysis of Layered, Client-Server, and Event-Driven Microservices architectures against high-throughput developer tooling constraints.
+- **Selected Architecture**: **Event-Driven Microservices Architecture with Edge-Cached SDK Evaluation**.
+- **Identified Components (UML 2.0)**:
+  1. `<<component>> Admin Dashboard` (React/Next.js Web Console)
+  2. `<<component>> API Gateway & Auth Guard` (RBAC & mTLS Ingress Proxy)
+  3. `<<component>> Flag & Rollout Manager` (Canary Sliders & Emergency Kill-Switch)
+  4. `<<component>> Targeting & Rule Evaluation Engine` (MurmurHash3 Consistent Hashing)
+  5. `<<component>> Streaming Distribution Service` (Real-Time SSE & WebSocket Broadcast)
+  6. `<<component>> Audit Ledger & Incident Dispatcher` (Tamper-Proof Audit & PagerDuty Alerting)
+  7. `<<component>> Telemetry & Metrics Aggregator` (OpenTelemetry Latency & Error Profiling)
+  8. `<<component>> Configuration Relational Store & In-Memory Distributed Cache` (PostgreSQL + Redis Cluster)
+  9. `<<component>> Client SDK & In-Memory Evaluator` (Sub-1ms Local Cached Evaluation)
+- **Key Interfaces & Protocols**:
+  - `IFlagAdminService` [REST / HTTPS]
+  - `IRolloutConfigService` & `IRuleEvaluation` [gRPC / mTLS]
+  - `IConfigStream` [Server-Sent Events / WebSockets]
+  - `IAuditLogger` [Asynchronous Event Broker / TLS]
+  - `IDataPersistence` [SQL / TCP Driver]
+  - `ICacheStore` [Redis RESP Protocol]
+- **Component Diagram**: Full UML 2.0 vector diagram with ball-and-socket assembly connectors, ports, and data flow.
+- **Written Justification**: Formal 1-page technical justification addressing Architectural Choice, Two Scenario-Related Reasons, Security Advantage, and Performance Benefits.
+- **Supplemental Scenario**: Full component model and diagram for the **Self-Service Coffee Kiosk System**.
+
+> 📁 **Full Report & Documentation**: [Lab-3-Component-Modelling/README.md](Lab-3-Component-Modelling/README.md)  
+> 📊 **Vector Component Diagram (SVG)**: [Lab-3-Component-Modelling/assets/component_diagram.svg](Lab-3-Component-Modelling/assets/component_diagram.svg)  
+> 📄 **PDF Submission**: [Lab-3-Component-Modelling/SE_Lab_3_Component_Modelling_Ganavi.pdf](Lab-3-Component-Modelling/SE_Lab_3_Component_Modelling_Ganavi.pdf)  
+> 📝 **Word Doc Submission**: [Lab-3-Component-Modelling/SE_Lab_3_Component_Modelling_Ganavi.docx](Lab-3-Component-Modelling/SE_Lab_3_Component_Modelling_Ganavi.docx)  
+> 📐 **PlantUML Model**: [Lab-3-Component-Modelling/component_diagram.puml](Lab-3-Component-Modelling/component_diagram.puml)
+
+---
+
+## 7. Repository Structure
 
 ```
 feature-flag-dynamic-config-manager/
-├── README.md                      # Main project documentation (Lab 1 & Lab 2)
-├── Lab-2-Agile-Jira/             # Lab 2: Agile Jira Backlog & Sprint Simulation
-│   ├── README.md                  # Comprehensive Lab 2 report with tables & answers
-│   ├── SE_Lab 2_jira_Ganavi.pdf   # 4-page lab report PDF
-│   ├── SE_Lab 2_jira_Ganavi.docx  # Word document version
+├── README.md                                  # Master project documentation (Labs 1, 2, & 3)
+├── Lab-2-Agile-Jira/                         # Lab 2: Agile Jira Backlog & Sprint Simulation
+│   ├── README.md                              # Comprehensive Lab 2 report with tables & retrospective
+│   ├── SE_Lab 2_jira_Ganavi.pdf               # 4-page lab report PDF
+│   ├── SE_Lab 2_jira_Ganavi.docx              # Word document version
 │   └── screenshots/
-│       ├── jira_backlog.png       # Jira backlog with Epics & User Stories
-│       ├── sprint_board_active.png # Active sprint board view
-│       ├── burndown_chart_sprint_0.png # Sprint 0 burndown chart
-│       └── burndown_chart_sprint_1.png # Sprint 1 burndown chart (27 SP to 0)
+│       ├── jira_backlog.png                   # Jira backlog with Epics & User Stories
+│       ├── sprint_board_active.png            # Active sprint board view
+│       ├── burndown_chart_sprint_0.png        # Sprint 0 burndown chart
+│       └── burndown_chart_sprint_1.png        # Sprint 1 burndown chart (27 SP to 0)
+├── Lab-3-Component-Modelling/                # Lab 3: Component Modelling & Architectural Pattern Selection
+│   ├── README.md                              # Comprehensive Lab 3 report & written justification
+│   ├── SE_Lab_3_Component_Modelling_Ganavi.docx # Formal Word submission document
+│   ├── SE_Lab_3_Component_Modelling_Ganavi.pdf  # Formal PDF submission document
+│   ├── component_diagram.puml                 # PlantUML model (Feature Flag System)
+│   ├── coffee_kiosk_component_diagram.puml    # PlantUML model (Coffee Kiosk System)
+│   └── assets/
+│       ├── component_diagram.svg              # UML 2.0 Vector Component Diagram (Feature Flag System)
+│       └── coffee_kiosk_component_diagram.svg # UML 2.0 Vector Component Diagram (Coffee Kiosk System)
 ├── docs/
-│   ├── requirements.md            # Standalone Requirements Table (5 FRs, 2 NFRs)
-│   ├── use-case-specification.md  # 1-page Use-Case Flow Specification (UC-01)
-│   ├── use-case-diagram.md        # Mermaid-based UML diagram specification
-│   ├── use-case-diagram.puml      # PlantUML diagram source code
-│   └── use-case-diagram.svg       # Vector graphic diagram rendering
+│   ├── requirements.md                        # Requirements Table (5 FRs, 2 NFRs)
+│   ├── use-case-specification.md              # 1-page Use-Case Flow Specification (UC-01)
+│   ├── use-case-diagram.md                    # Mermaid-based UML Use-Case diagram specification
+│   ├── use-case-diagram.puml                  # PlantUML Use-Case diagram source code
+│   ├── use-case-diagram.svg                   # Vector graphic Use-Case diagram rendering
+│   ├── component_diagram.svg                  # Vector graphic Component diagram rendering
+│   ├── component_diagram.puml                 # Component diagram PlantUML source code
+│   └── lab3_component_modelling.md            # Standalone Lab 3 specification document
 └── scripts/
-    └── setup_git_and_push.sh      # Git helper script to push to GitHub
+    └── setup_git_and_push.sh                  # Git helper script to push to GitHub
 ```
 
 ---
 
-## 7. Submission & Verification Guide
+## 8. Submission & Verification Guide
 
 ### Pushing to GitHub Account: `ganavigowda8343-ctrl`
 
-To upload changes to GitHub under the account `ganavigowda8343-ctrl`:
+To upload changes to GitHub:
 
 ```bash
 # 1. Navigate to the project directory
@@ -260,9 +312,14 @@ cd /Users/apple/.gemini/antigravity/scratch/feature-flag-dynamic-config-manager
 # 2. Check git status
 git status
 
-# 3. Push commits to GitHub:
+# 3. Add and commit all changes
+git add .
+git commit -m "feat(lab3): complete component modelling and architectural pattern selection"
+
+# 4. Push commits to GitHub:
 git push origin main
 ```
 
 ---
-*Created for PES University CSE Department - Lab 1: Requirements Engineering & UML Use-Case Modelling.*
+*Created for PES University CSE Department — Software Engineering Lab.*
+

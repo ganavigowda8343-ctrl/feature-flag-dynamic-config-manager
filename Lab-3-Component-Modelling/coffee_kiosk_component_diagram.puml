@@ -1,0 +1,44 @@
+@startuml
+!theme plain
+skinparam componentStyle uml2
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+
+title UML Component Diagram: Self-Service Coffee Kiosk System\n(Layered Architecture)
+
+package "Presentation Layer" {
+    [User Interface Component] <<component>> as UI #FEF3C7
+}
+
+package "Business Layer" {
+    [Order Manager Component] <<component>> as OrderMgr #EFF6FF
+    [Payment Service Component] <<component>> as Payment #F0FDF4
+    [Receipt Printer Component] <<component>> as Printer #FAF5FF
+}
+
+package "Data Layer" {
+    database "SQLite Database" as DB #F1F5F9 {
+        [Database Component] <<component>> as DBComp
+    }
+}
+
+' Interfaces
+interface "Order Interface\n[Touch Screen API]" as IOrder
+interface "Payment Interface\n[Credit Card Terminal API]" as IPayment
+interface "Receipt Interface\n[ESC/POS Thermal Driver]" as IReceipt
+interface "Database Interface\n[SQL Queries]" as IDatabase
+
+' Assembly Connectors
+UI -( IOrder
+IOrder - OrderMgr
+
+OrderMgr -( IPayment
+IPayment - Payment
+
+OrderMgr -( IReceipt
+IReceipt - Printer
+
+OrderMgr -( IDatabase
+IDatabase - DBComp
+
+@enduml
