@@ -22,8 +22,9 @@
 4. [Use-Case Flow Specification (UC-01)](#4-use-case-flow-specification-uc-01)
 5. [Lab 2: Agile Backlog Creation & Sprint Simulation in Jira](#5-lab-2-agile-backlog-creation--sprint-simulation-in-jira)
 6. [Lab 3: Component Modelling & Architectural Pattern Selection](#6-lab-3-component-modelling--architectural-pattern-selection)
-7. [Repository Structure](#7-repository-structure)
-8. [Submission & Verification Guide](#8-submission--verification-guide)
+7. [Lab 4: VibeCoding — AI-Assisted Pair Programming & Game Refactoring](#7-lab-4-vibecoding--ai-assisted-pair-programming--game-refactoring)
+8. [Repository Structure](#8-repository-structure)
+9. [Submission & Verification Guide](#9-submission--verification-guide)
 
 ---
 
@@ -261,11 +262,30 @@ Detailed documentation, diagrams, and written justifications for **Lab 3** are m
 
 ---
 
-## 7. Repository Structure
+## 7. Lab 4: VibeCoding — AI-Assisted Pair Programming & Game Refactoring
+
+- **Assigned System / Problem Statement #43**: Real-Time Reaction Time Tester (Pygame)
+- **Methodology**: AI pair-programming (VibeCoding) with ChatGPT to debug, refactor, and implement features on a broken starter game.
+- **Key Tasks Completed**:
+  - **Input Timing & False Start Interception**: Measured response strictly from green visual cue; flagged grey-screen early clicks.
+  - **Results Summary Screen**: Dedicated screen displaying round times and session average reaction time.
+  - **Interactive Replay & Difficulty Modes**: Post-session menu with Easy, Medium, and Hard difficulty presets.
+  - **Dynamic Audio Feedback**: Integrated `pygame.mixer` sound cues for "go", false starts, and session end.
+- **Deliverables**:
+  - 🎥 **Before Video (10s)**: [Lab-4/before.mp4](Lab-4/before.mp4) (Demonstrating timing bug and lack of false start handling)
+  - 🎥 **After Video (10s)**: [Lab-4/after.mp4](Lab-4/after.mp4) (Demonstrating resolved bugs, new results screen, replay, and sound)
+  - 📄 **Chat History PDF**: [Lab-4/Chat_history.pdf](Lab-4/Chat_history.pdf)
+  - 🎮 **Full Game Package**: [Lab-4/reaction-time-tester/](Lab-4/reaction-time-tester/)
+  - 💻 **Updated Code**: [Lab-4/updated-code/](Lab-4/updated-code/)
+  - 📝 **Lab-4 Documentation**: [Lab-4/README.md](Lab-4/README.md)
+
+---
+
+## 8. Repository Structure
 
 ```
 feature-flag-dynamic-config-manager/
-├── README.md                                  # Master project documentation (Labs 1, 2, & 3)
+├── README.md                                  # Master project documentation (Labs 1, 2, 3, & 4)
 ├── Lab-2-Agile-Jira/                         # Lab 2: Agile Jira Backlog & Sprint Simulation
 │   ├── README.md                              # Comprehensive Lab 2 report with tables & retrospective
 │   ├── SE_Lab 2_jira_Ganavi.pdf               # 4-page lab report PDF
@@ -284,6 +304,25 @@ feature-flag-dynamic-config-manager/
 │   └── assets/
 │       ├── component_diagram.svg              # UML 2.0 Vector Component Diagram (Feature Flag System)
 │       └── coffee_kiosk_component_diagram.svg # UML 2.0 Vector Component Diagram (Coffee Kiosk System)
+├── Lab-4/                                     # Lab 4: VibeCoding — AI Pair Programming & Refactoring
+│   ├── README.md                              # Comprehensive Lab 4 documentation & instructions
+│   ├── Chat_history.pdf                       # Compiled ChatGPT conversation transcript
+│   ├── before.mp4                             # 10s gameplay before fix (showing bug)
+│   ├── after.mp4                              # 10s gameplay after fix (showing features)
+│   ├── chat_link.txt                          # Chat reference & repository links
+│   ├── reaction-time-tester/                  # Complete game package (matching balloon-pop)
+│   │   ├── README.md
+│   │   ├── main.py
+│   │   ├── requirements.txt
+│   │   └── game/
+│   │       ├── game_engine.py
+│   │       └── round.py
+│   └── updated-code/                          # Direct updated-code folder
+│       ├── main.py
+│       ├── requirements.txt
+│       └── game/
+│           ├── game_engine.py
+│           └── round.py
 ├── docs/
 │   ├── requirements.md                        # Requirements Table (5 FRs, 2 NFRs)
 │   ├── use-case-specification.md              # 1-page Use-Case Flow Specification (UC-01)
@@ -299,7 +338,7 @@ feature-flag-dynamic-config-manager/
 
 ---
 
-## 8. Submission & Verification Guide
+## 9. Submission & Verification Guide
 
 ### Pushing to GitHub Account: `ganavigowda8343-ctrl`
 

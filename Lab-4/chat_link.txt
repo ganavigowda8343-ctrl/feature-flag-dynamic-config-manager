@@ -1,0 +1,12 @@
+Lab 4: VibeCoding — AI Pair-Programming Session
+Problem Statement #43: Real-Time Reaction Time Tester
+
+Student: Ganavi Gowda (PES1UG24CS707)
+Starter Repository: https://github.com/SETAPESU26/43_reaction-time-tester
+Personal Fork: https://github.com/ganavigowda8343-ctrl/43_reaction-time-tester
+Target Deliverables: https://github.com/ganavigowda8343-ctrl/feature-flag-dynamic-config-manager/tree/main/Lab-4
+
+AI Assistant: ChatGPT
+Chat Transcript:
+The complete, unabridged conversational transcript documenting the prompt iterations, error fixes, recording guidance, and deliverables checklist is saved in:
+./Chat_history.pdf (also accessible as ./Lab4_VibeCoding_Chat_History.pdf)
