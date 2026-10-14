@@ -23,8 +23,9 @@
 5. [Lab 2: Agile Backlog Creation & Sprint Simulation in Jira](#5-lab-2-agile-backlog-creation--sprint-simulation-in-jira)
 6. [Lab 3: Component Modelling & Architectural Pattern Selection](#6-lab-3-component-modelling--architectural-pattern-selection)
 7. [Lab 4: VibeCoding — AI-Assisted Pair Programming & Game Refactoring](#7-lab-4-vibecoding--ai-assisted-pair-programming--game-refactoring)
-8. [Repository Structure](#8-repository-structure)
-9. [Submission & Verification Guide](#9-submission--verification-guide)
+8. [Lab 5: Static Code Analysis — Hotel Booking System](#8-lab-5-static-code-analysis--hotel-booking-system)
+9. [Repository Structure](#9-repository-structure)
+10. [Submission & Verification Guide](#10-submission--verification-guide)
 
 ---
 
@@ -281,11 +282,30 @@ Detailed documentation, diagrams, and written justifications for **Lab 3** are m
 
 ---
 
-## 8. Repository Structure
+## 8. Lab 5: Static Code Analysis — Hotel Booking System
+
+- **Assigned System / Problem Statement #43**: Hotel Room Reservation & Inventory Manager (`hotel_booking_system.py`)
+- **Objective**: Enhance Python code quality, security, and PEP 8 style using static analysis tools (Pylint, Bandit, and Flake8).
+- **Key Metrics Achieved**:
+  - **Bandit (Security SAST)**: **0 issues** (Eliminated arbitrary `eval` code execution CWE-78, `os.system` command injection CWE-78, weak MD5 hashing CWE-327, predictable PRNG CWE-330, hardcoded secret tokens CWE-259, and silent exception swallowing CWE-703).
+  - **Pylint (Code Quality & Smells)**: **10.00 / 10.00** (Resolved mutable default argument `booking_log=[]` CWE/Bug W0102, snake_case function naming, PEP 257 docstrings, resource leaks with `with open(..., encoding="utf-8")`, singleton comparisons `is None`, and dead code).
+  - **Flake8 (PEP 8 Style)**: **0 violations** (Full compliance with line length $\le 79$ characters, import hygiene, and POSIX trailing newlines).
+- **Deliverables**:
+  - 🐍 **Cleaned Script**: [Lab-5/hotel_booking_system.py](Lab-5/hotel_booking_system.py)
+  - 📋 **Issue Tracking Table**: [Lab-5/issues.md](Lab-5/issues.md)
+  - 📝 **Reflection Report**: [Lab-5/reflection.md](Lab-5/reflection.md)
+  - 📊 **Static Analysis Reports**:
+    - [Lab-5/pylint_report.txt](Lab-5/pylint_report.txt)
+    - [Lab-5/bandit_report.txt](Lab-5/bandit_report.txt)
+    - [Lab-5/flake8_report.txt](Lab-5/flake8_report.txt)
+
+---
+
+## 9. Repository Structure
 
 ```
 feature-flag-dynamic-config-manager/
-├── README.md                                  # Master project documentation (Labs 1, 2, 3, & 4)
+├── README.md                                  # Master project documentation (Labs 1, 2, 3, 4, & 5)
 ├── Lab-2-Agile-Jira/                         # Lab 2: Agile Jira Backlog & Sprint Simulation
 │   ├── README.md                              # Comprehensive Lab 2 report with tables & retrospective
 │   ├── SE_Lab 2_jira_Ganavi.pdf               # 4-page lab report PDF
@@ -323,6 +343,14 @@ feature-flag-dynamic-config-manager/
 │       └── game/
 │           ├── game_engine.py
 │           └── round.py
+├── Lab-5/                                     # Lab 5: Static Code Analysis — Hotel Booking System
+│   ├── hotel_booking_system.py                # Refactored script (Pylint 10.00/10, Bandit 0 issues)
+│   ├── issues.md                              # Documented issue table (15 issues fixed)
+│   ├── reflection.md                          # 4 in-depth reflection answers
+│   ├── pylint_report.txt                      # Pylint analysis report (10.00/10)
+│   ├── bandit_report.txt                      # Bandit security scan report (0 issues)
+│   ├── flake8_report.txt                      # Flake8 PEP 8 report (0 violations)
+│   └── README.md                              # Lab 5 problem statement & instructions
 ├── docs/
 │   ├── requirements.md                        # Requirements Table (5 FRs, 2 NFRs)
 │   ├── use-case-specification.md              # 1-page Use-Case Flow Specification (UC-01)
@@ -338,7 +366,7 @@ feature-flag-dynamic-config-manager/
 
 ---
 
-## 9. Submission & Verification Guide
+## 10. Submission & Verification Guide
 
 ### Pushing to GitHub Account: `ganavigowda8343-ctrl`
 
