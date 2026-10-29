@@ -24,8 +24,9 @@
 6. [Lab 3: Component Modelling & Architectural Pattern Selection](#6-lab-3-component-modelling--architectural-pattern-selection)
 7. [Lab 4: VibeCoding — AI-Assisted Pair Programming & Game Refactoring](#7-lab-4-vibecoding--ai-assisted-pair-programming--game-refactoring)
 8. [Lab 5: Static Code Analysis — Hotel Booking System](#8-lab-5-static-code-analysis--hotel-booking-system)
-9. [Repository Structure](#9-repository-structure)
-10. [Submission & Verification Guide](#10-submission--verification-guide)
+9. [Lab 6: Code and Branch Coverage Analysis — Warranty Claims](#9-lab-6-code-and-branch-coverage-analysis--warranty-claims)
+10. [Repository Structure](#10-repository-structure)
+11. [Submission & Verification Guide](#11-submission--verification-guide)
 
 ---
 
@@ -301,11 +302,31 @@ Detailed documentation, diagrams, and written justifications for **Lab 3** are m
 
 ---
 
-## 9. Repository Structure
+## 9. Lab 6: Code and Branch Coverage Analysis — Warranty Claims
+
+- **Assigned System / Problem Statement #43**: Warranty Claims Manager (`warranty_claims.py`)
+- **Objective**: Measure, analyze, and maximize statement (code) and branch coverage using Python's `coverage` and `pytest` frameworks. Contrast line vs branch coverage limitations and eliminate untested edge cases.
+- **Key Metrics Achieved**:
+  - **Baseline Initial Coverage**: 38% Line Coverage / 32% Branch Coverage (14/37 stmts, missing 23 lines and 20 branches).
+  - **Code Coverage Suite (`CodeCoverageTest_warranty_claims_application.py`)**: **100% Statement Coverage (37/37 stmts)**, 98% Branch Coverage (isolated missing decision branch `21->23` on non-accidental claims inside `excess > 12`).
+  - **Branch Coverage Suite (`BranchCoverageTest_warranty_claims_application.py`)**: **100% Statement Coverage (37/37 stmts)**, **100% Branch Coverage (26/26 branches)**, **0 missing statements, 0 missing branches** across 25 targeted unit tests.
+- **Deliverables**:
+  - 🐍 **Application Under Test**: [Lab-6/warranty_claims.py](Lab-6/warranty_claims.py)
+  - 🧪 **Code Coverage Test Cases**: [Lab-6/CodeCoverageTest_warranty_claims_application.py](Lab-6/CodeCoverageTest_warranty_claims_application.py)
+  - 🧪 **Branch Coverage Test Cases**: [Lab-6/BranchCoverageTest_warranty_claims_application.py](Lab-6/BranchCoverageTest_warranty_claims_application.py)
+  - 🧪 **Standard Pytest Test File**: [Lab-6/test_warranty_claims.py](Lab-6/test_warranty_claims.py)
+  - 📸 **Code Coverage Screenshot**: [Lab-6/code_coverage_analysis.png](Lab-6/code_coverage_analysis.png)
+  - 📸 **Branch Coverage Screenshot**: [Lab-6/branch_coverage_analysis.png](Lab-6/branch_coverage_analysis.png)
+  - 📸 **Baseline Coverage Screenshot**: [Lab-6/initial_coverage_analysis.png](Lab-6/initial_coverage_analysis.png)
+  - 📝 **Comprehensive Lab-6 Documentation**: [Lab-6/README.md](Lab-6/README.md)
+
+---
+
+## 10. Repository Structure
 
 ```
 feature-flag-dynamic-config-manager/
-├── README.md                                  # Master project documentation (Labs 1, 2, 3, 4, & 5)
+├── README.md                                  # Master project documentation (Labs 1, 2, 3, 4, 5, & 6)
 ├── Lab-2-Agile-Jira/                         # Lab 2: Agile Jira Backlog & Sprint Simulation
 │   ├── README.md                              # Comprehensive Lab 2 report with tables & retrospective
 │   ├── SE_Lab 2_jira_Ganavi.pdf               # 4-page lab report PDF
@@ -351,6 +372,15 @@ feature-flag-dynamic-config-manager/
 │   ├── bandit_report.txt                      # Bandit security scan report (0 issues)
 │   ├── flake8_report.txt                      # Flake8 PEP 8 report (0 violations)
 │   └── README.md                              # Lab 5 problem statement & instructions
+├── Lab-6/                                     # Lab 6: Code & Branch Coverage Analysis — Warranty Claims
+│   ├── warranty_claims.py                     # Module under test
+│   ├── test_warranty_claims.py                # Standalone pytest suite (25 tests, 100% coverage)
+│   ├── CodeCoverageTest_warranty_claims_application.py # Test cases for statement coverage (100%)
+│   ├── BranchCoverageTest_warranty_claims_application.py # Test cases for branch coverage (100%)
+│   ├── code_coverage_analysis.png             # Terminal screenshot of code coverage report
+│   ├── branch_coverage_analysis.png           # Terminal screenshot of branch coverage report
+│   ├── initial_coverage_analysis.png          # Terminal screenshot of initial baseline coverage
+│   └── README.md                              # Lab 6 comprehensive documentation & test matrix
 ├── docs/
 │   ├── requirements.md                        # Requirements Table (5 FRs, 2 NFRs)
 │   ├── use-case-specification.md              # 1-page Use-Case Flow Specification (UC-01)
@@ -366,7 +396,7 @@ feature-flag-dynamic-config-manager/
 
 ---
 
-## 10. Submission & Verification Guide
+## 11. Submission & Verification Guide
 
 ### Pushing to GitHub Account: `ganavigowda8343-ctrl`
 
@@ -381,7 +411,7 @@ git status
 
 # 3. Add and commit all changes
 git add .
-git commit -m "feat(lab3): complete component modelling and architectural pattern selection"
+git commit -m "feat(lab6): complete Code and Branch Coverage Analysis deliverables for Warranty Claims"
 
 # 4. Push commits to GitHub:
 git push origin main
