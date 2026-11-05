@@ -25,8 +25,9 @@
 7. [Lab 4: VibeCoding — AI-Assisted Pair Programming & Game Refactoring](#7-lab-4-vibecoding--ai-assisted-pair-programming--game-refactoring)
 8. [Lab 5: Static Code Analysis — Hotel Booking System](#8-lab-5-static-code-analysis--hotel-booking-system)
 9. [Lab 6: Code and Branch Coverage Analysis — Warranty Claims](#9-lab-6-code-and-branch-coverage-analysis--warranty-claims)
-10. [Repository Structure](#10-repository-structure)
-11. [Submission & Verification Guide](#11-submission--verification-guide)
+10. [Lab 7: Fuzzing for Input Validation Bugs with Hypothesis](#10-lab-7-fuzzing-for-input-validation-bugs-with-hypothesis)
+11. [Repository Structure](#11-repository-structure)
+12. [Submission & Verification Guide](#12-submission--verification-guide)
 
 ---
 
@@ -322,11 +323,37 @@ Detailed documentation, diagrams, and written justifications for **Lab 3** are m
 
 ---
 
-## 10. Repository Structure
+---
+
+## 10. Lab 7: Fuzzing for Input Validation Bugs with Hypothesis
+
+- **Assigned System / Problem Statement #43**: Warranty Claims Manager (`warranty_claims.py` / `processor.py`)
+- **Objective**: Explore dynamic fuzz testing as a security and quality assurance technique using Python's **Hypothesis** property-based fuzzing library. Discover, analyze, and fix unhandled exceptions and crashes caused by edge-case, malformed, or hostile inputs.
+- **Key Metrics & Outcomes Achieved**:
+  - **Fuzzing Discoveries**: Uncovered fatal unhandled crashes across all 3 core routines using `@given(st.text() | st.none())`:
+    - `parse_claim`: Crashed on `None` (`AttributeError`), empty string (unpacking `ValueError`), and non-numeric inputs (`float` conversion `ValueError`).
+    - `age_average`: Crashed on `None` (`AttributeError`), empty elements (`int('')` `ValueError`), and non-numeric lists (`ZeroDivisionError` on `len(values) == 0`).
+    - `payable_charge`: Crashed on `None` (`AttributeError`), missing delimiters (unpacking `ValueError`), and non-numeric inputs (`float` conversion `ValueError`).
+  - **Hardened Defensive Implementation**: Applied type verification (`isinstance(text, str)`), strict component unpacking checks (`len(parts) == 2`), non-numeric and negative value filtering, arithmetic guardrails (`math.isnan`, `math.isinf`), and division-by-zero guards.
+  - **Post-Hardening Fuzz Verification**: Re-executed property-based tests with Hypothesis generating hundreds of randomized inputs per test; achieved **0 crashes and 0 failures (100% pass rate)**.
+- **Deliverables**:
+  - 📄 **Comprehensive PDF Report**: [Lab-7/SE_Lab_7_Fuzzing_Ganavi.pdf](Lab-7/SE_Lab_7_Fuzzing_Ganavi.pdf) / [Lab-7/Lab7_Fuzz_Testing_Report.pdf](Lab-7/Lab7_Fuzz_Testing_Report.pdf) (8-page formal report with embedded terminal screenshots, theoretical analysis, and code walkthrough)
+  - 🐍 **Hardened Application Script**: [Lab-7/warranty_claims.py](Lab-7/warranty_claims.py) (and alias [Lab-7/processor.py](Lab-7/processor.py))
+  - 🧪 **Updated Test Script**: [Lab-7/test_warranty_claims.py](Lab-7/test_warranty_claims.py) (and alias [Lab-7/test_processor.py](Lab-7/test_processor.py))
+  - 📸 **Terminal Output Screenshots**:
+    - [Lab-7/step2_buggy_processor_output.png](Lab-7/step2_buggy_processor_output.png) (Step 2: Normal run of buggy application)
+    - [Lab-7/step4_test_processor_failures.png](Lab-7/step4_test_processor_failures.png) (Step 4: Hypothesis test failures exposing bugs)
+    - [Lab-7/step5_fixed_processor_output.png](Lab-7/step5_fixed_processor_output.png) (Step 5: Normal run of hardened application)
+    - [Lab-7/step6_test_processor_passing.png](Lab-7/step6_test_processor_passing.png) (Step 6: Hypothesis tests passing cleanly)
+  - 📝 **Comprehensive Lab-7 Documentation**: [Lab-7/README.md](Lab-7/README.md)
+
+---
+
+## 11. Repository Structure
 
 ```
 feature-flag-dynamic-config-manager/
-├── README.md                                  # Master project documentation (Labs 1, 2, 3, 4, 5, & 6)
+├── README.md                                  # Master project documentation (Labs 1 through 7)
 ├── Lab-2-Agile-Jira/                         # Lab 2: Agile Jira Backlog & Sprint Simulation
 │   ├── README.md                              # Comprehensive Lab 2 report with tables & retrospective
 │   ├── SE_Lab 2_jira_Ganavi.pdf               # 4-page lab report PDF
@@ -381,6 +408,18 @@ feature-flag-dynamic-config-manager/
 │   ├── branch_coverage_analysis.png           # Terminal screenshot of branch coverage report
 │   ├── initial_coverage_analysis.png          # Terminal screenshot of initial baseline coverage
 │   └── README.md                              # Lab 6 comprehensive documentation & test matrix
+├── Lab-7/                                     # Lab 7: Fuzzing for Input Validation Bugs with Hypothesis
+│   ├── warranty_claims.py                     # Hardened application script
+│   ├── processor.py                           # Application script alias matching handout
+│   ├── test_warranty_claims.py                # Hypothesis property-based fuzz test suite
+│   ├── test_processor.py                      # Hypothesis test suite alias matching handout
+│   ├── SE_Lab_7_Fuzzing_Ganavi.pdf            # Formal comprehensive 8-page PDF report with screenshots
+│   ├── Lab7_Fuzz_Testing_Report.pdf           # Report PDF copy
+│   ├── step2_buggy_processor_output.png       # Screenshot: Running initial application
+│   ├── step4_test_processor_failures.png      # Screenshot: Hypothesis uncovering edge-case crashes
+│   ├── step5_fixed_processor_output.png       # Screenshot: Running hardened application
+│   ├── step6_test_processor_passing.png       # Screenshot: All Hypothesis fuzz tests passing
+│   └── README.md                              # Lab 7 comprehensive documentation & analysis
 ├── docs/
 │   ├── requirements.md                        # Requirements Table (5 FRs, 2 NFRs)
 │   ├── use-case-specification.md              # 1-page Use-Case Flow Specification (UC-01)
@@ -396,7 +435,7 @@ feature-flag-dynamic-config-manager/
 
 ---
 
-## 11. Submission & Verification Guide
+## 12. Submission & Verification Guide
 
 ### Pushing to GitHub Account: `ganavigowda8343-ctrl`
 
@@ -411,7 +450,7 @@ git status
 
 # 3. Add and commit all changes
 git add .
-git commit -m "feat(lab6): complete Code and Branch Coverage Analysis deliverables for Warranty Claims"
+git commit -m "feat(lab7): complete Fuzzing for Input Validation Bugs deliverables"
 
 # 4. Push commits to GitHub:
 git push origin main
@@ -419,4 +458,5 @@ git push origin main
 
 ---
 *Created for PES University CSE Department — Software Engineering Lab.*
+
 

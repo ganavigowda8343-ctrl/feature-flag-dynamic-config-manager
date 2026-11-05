@@ -2,4 +2,9 @@
 *.tmp
 *.log
 __pycache__/
+*.pyc
 .coverage
+.pytest_cache/
+.hypothesis/
+venv/
+.venv/
