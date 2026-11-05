@@ -26,7 +26,7 @@ The application processes warranty records via three core functions:
 
 | Deliverable | File Path | Status | Description |
 | :--- | :--- | :---: | :--- |
-| **1. PDF Document with Screenshots** | [`SE_Lab_7_Fuzzing_Ganavi.pdf`](SE_Lab_7_Fuzzing_Ganavi.pdf) / [`Lab7_Fuzz_Testing_Report.pdf`](Lab7_Fuzz_Testing_Report.pdf) | **Complete** | Formal 8-page comprehensive lab report with embedded terminal screenshots, theoretical analysis, and code walkthrough. |
+| **1. PDF Document with Screenshots** | [`screenshots.pdf`](screenshots.pdf) / [`Screenshots.pdf`](Screenshots.pdf) / [`SE_Lab_7_Fuzzing_Ganavi.pdf`](SE_Lab_7_Fuzzing_Ganavi.pdf) | **Complete** | Formal PDF document compiling all terminal output screenshots for Steps 2, 4, 5, and 6 along with step descriptions and verification notes. |
 | **2. Fixed Application Python Script** | [`warranty_claims.py`](warranty_claims.py) / [`processor.py`](processor.py) | **Complete** | Hardened, defensive implementation resilient against all malformed, null, and fuzz inputs. |
 | **3. Updated Test Script** | [`test_warranty_claims.py`](test_warranty_claims.py) / [`test_processor.py`](test_processor.py) | **Complete** | Hypothesis property-based fuzz test suite verifying 100% crash-free execution. |
 | **4. Terminal Output Screenshots** | `step2_*.png`, `step4_*.png`, `step5_*.png`, `step6_*.png` | **Complete** | High-resolution terminal captures documenting each stage of testing. |

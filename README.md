@@ -337,7 +337,7 @@ Detailed documentation, diagrams, and written justifications for **Lab 3** are m
   - **Hardened Defensive Implementation**: Applied type verification (`isinstance(text, str)`), strict component unpacking checks (`len(parts) == 2`), non-numeric and negative value filtering, arithmetic guardrails (`math.isnan`, `math.isinf`), and division-by-zero guards.
   - **Post-Hardening Fuzz Verification**: Re-executed property-based tests with Hypothesis generating hundreds of randomized inputs per test; achieved **0 crashes and 0 failures (100% pass rate)**.
 - **Deliverables**:
-  - 📄 **Comprehensive PDF Report**: [Lab-7/SE_Lab_7_Fuzzing_Ganavi.pdf](Lab-7/SE_Lab_7_Fuzzing_Ganavi.pdf) / [Lab-7/Lab7_Fuzz_Testing_Report.pdf](Lab-7/Lab7_Fuzz_Testing_Report.pdf) (8-page formal report with embedded terminal screenshots, theoretical analysis, and code walkthrough)
+  - 📄 **PDF Document with Screenshots**: [Lab-7/screenshots.pdf](Lab-7/screenshots.pdf) / [Lab-7/Screenshots.pdf](Lab-7/Screenshots.pdf) / [Lab-7/SE_Lab_7_Fuzzing_Ganavi.pdf](Lab-7/SE_Lab_7_Fuzzing_Ganavi.pdf) (Formal 5-page PDF compiling all terminal output screenshots with step descriptions)
   - 🐍 **Hardened Application Script**: [Lab-7/warranty_claims.py](Lab-7/warranty_claims.py) (and alias [Lab-7/processor.py](Lab-7/processor.py))
   - 🧪 **Updated Test Script**: [Lab-7/test_warranty_claims.py](Lab-7/test_warranty_claims.py) (and alias [Lab-7/test_processor.py](Lab-7/test_processor.py))
   - 📸 **Terminal Output Screenshots**:
@@ -409,12 +409,12 @@ feature-flag-dynamic-config-manager/
 │   ├── initial_coverage_analysis.png          # Terminal screenshot of initial baseline coverage
 │   └── README.md                              # Lab 6 comprehensive documentation & test matrix
 ├── Lab-7/                                     # Lab 7: Fuzzing for Input Validation Bugs with Hypothesis
+│   ├── screenshots.pdf                        # Formal 5-page PDF document with all screenshots
+│   ├── SE_Lab_7_Fuzzing_Ganavi.pdf            # Comprehensive lab report PDF with screenshots
 │   ├── warranty_claims.py                     # Hardened application script
 │   ├── processor.py                           # Application script alias matching handout
 │   ├── test_warranty_claims.py                # Hypothesis property-based fuzz test suite
 │   ├── test_processor.py                      # Hypothesis test suite alias matching handout
-│   ├── SE_Lab_7_Fuzzing_Ganavi.pdf            # Formal comprehensive 8-page PDF report with screenshots
-│   ├── Lab7_Fuzz_Testing_Report.pdf           # Report PDF copy
 │   ├── step2_buggy_processor_output.png       # Screenshot: Running initial application
 │   ├── step4_test_processor_failures.png      # Screenshot: Hypothesis uncovering edge-case crashes
 │   ├── step5_fixed_processor_output.png       # Screenshot: Running hardened application
